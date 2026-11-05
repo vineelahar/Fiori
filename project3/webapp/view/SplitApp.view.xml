@@ -1,0 +1,118 @@
+<mvc:View
+    controllerName="project3.controller.SplitApp"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <!-- <SplitApp id="splitApp">
+
+        
+        <masterPages>
+            <Page id="masterPage" title="Navigation">
+                <content>
+                    <List>
+                        <StandardListItem
+                            title="To Detail 1"
+                            type="Active"
+                            press=".onGoToDetail1"/>
+
+                        <StandardListItem
+                            title="To Detail 2"
+                            type="Active"
+                            press=".onGoToDetail2"/>
+
+                        <StandardListItem
+                            title="To Detail 3"
+                            type="Active"
+                            press=".onGoToDetail3"/>
+                    </List>
+                </content>
+            </Page>
+        </masterPages>
+
+  
+        <detailPages>
+
+            <Page id="detail1" title="Detail 1">
+                <content>
+                    <Text text="This is Detail page 1."/>
+
+                    <Button
+                        text="Go to Detail 2"
+                        press=".onGoToDetail2"/>
+                    <!-- <Button text ="Go to Detail3" press="onGoToDetail3"/> -->
+                </content>
+            </Page>
+
+            <Page id="detail2" title="Display Options">
+                <content>
+                    <VBox class="sapUiMediumMargin" gap="1rem">
+
+                        <Title text="Master Page Options"/>
+
+                        <RadioButtonGroup
+                            columns="1"
+                            select=".onPressModeBtn">
+
+                            <RadioButton
+                                text="Show/Hide"
+                                custom:splitAppMode="ShowHideMode"
+                                selected="true" />
+                                <!-- text:display the radio button;
+                                custom:splitAppMode="HideMode" — stores the mode value as custom data
+                                 xmlns:custom="..." — declares the namespace required to use the custom: prefix.
+                                 setMode("HideMode") — applies the mode to your SplitApp.-->
+
+                            <RadioButton
+                                text="Stretch/Compress"
+                                custom:splitAppMode="StretchCompressMode" />
+
+                            <RadioButton
+                                text="Hide"
+                                custom:splitAppMode="HideMode" />
+
+                            <RadioButton
+                                text="Popover"
+                                custom:splitAppMode="PopoverMode" />
+
+                        </RadioButtonGroup>
+                        
+                       
+
+                    </VBox>
+                </content>
+            </Page>
+            
+            <Page id="detail3" title="Customer Details">
+                <content>
+                    <VBox class="sapUiMediumMargin" gap="0.5rem">
+
+                        <Title text="{CompanyName}" level="H2"/>
+
+                        <Label text="Customer ID"/>
+                        <Text text="{CustomerID}"/>
+
+                        <Label text="Contact Name"/>
+                        <Text text="{ContactName}"/>
+
+                        <Label text="Address"/>
+                        <Text text="{Address}"/>
+
+                        <Label text="City"/>
+                        <Text text="{City}"/>
+
+                        <Label text="Country"/>
+                        <Text text="{Country}"/>
+
+                        <Label text="Phone"/>
+                        <Text text="{Phone}"/>
+
+                    </VBox>
+                </content>
+            </Page>
+
+
+        </detailPages>
+
+    </SplitApp> -->
+
+</mvc:View>

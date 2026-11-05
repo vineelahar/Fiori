@@ -1,0 +1,52 @@
+<mvc:View controllerName="project3.controller.Multiinput"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox width="100%">
+            <Label text='Enter a search term, e.g."Notebook", and add matching products as tokens'
+            width="100%" 
+            labelFor="MultiInput" />
+
+           <MultiInput
+                id="multiInput"
+                width="70%"
+                placeholder="Products"
+                showValueHelp="false"
+                showSuggestion="true"
+                suggestionItems="{
+                    path: '/Products'
+                }">
+
+                <core:Item
+                    key="{ProductId}"
+                    text="{Name}" />
+
+            </MultiInput>
+
+            <Label
+                text="MultiInput with pre-selected tokens"
+                labelFor="multiInput1"/>
+
+            <MultiInput
+                id="multiInput1"
+                showValueHelp="false"
+                width="70%"/>
+
+            <Label
+                text="MultiInput with single long token"
+                labelFor="multiInput2"/>
+
+            <MultiInput
+                id="multiInput2"
+                width="70%"
+                showValueHelp="false"
+                placeholder="Single long token"/>
+            
+            
+
+        </VBox>
+        
+       
+    </Page>
+</mvc:View>

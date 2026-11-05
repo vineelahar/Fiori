@@ -1,0 +1,24 @@
+{
+    "Products": [
+        {
+            "ProductId": "P001",
+            "Name": "Notebook"
+        },
+        {
+            "ProductId": "P002",
+            "Name": "Laptop"
+        },
+        {
+            "ProductId": "P003",
+            "Name": "Keyboard"
+        },
+        {
+            "ProductId": "P004",
+            "Name": "Mouse"
+        },
+         {
+            "ProductId": "P005",
+            "Name": "Apple"
+        }
+    ]
+}

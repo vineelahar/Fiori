@@ -1,0 +1,294 @@
+{
+  "_version": "1.89.0",
+  "sap.app": {
+    "id": "project3",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.32.0",
+      "toolsId": "195d1b50-c213-43b4-902e-f7a7df6f7156"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/V2/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZEXCEL_API_SRV": {
+        "uri": "/sap/opu/odata/sap/ZEXCEL_API_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZEXCEL_API_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZAK_SO_SRV": {
+        "uri": "/sap/opu/odata/sap/ZAK_SO_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZAK_SO_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.152.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.comp": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project3.i18n.i18n"
+        }
+      },
+      "": {
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "ZEXCEL_API_SRV": {
+        "dataSource": "ZEXCEL_API_SRV",
+        "preload": true,
+        "settings": {}
+      },
+      "ZAK_SO_SRV": {
+        "dataSource": "ZAK_SO_SRV",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "project3.view",
+        "async": true,
+        "viewPath": "project3.view"
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "RouteReadinput",
+          "pattern": "Readinput",
+          "target": [
+            "TargetReadinput"
+          ]
+        },
+        {
+          "name": "Routedetails",
+          "pattern": "details",
+          "target": [
+            "Targetdetails"
+          ]
+        },
+        {
+          "name": "RouteActionsheet",
+          "pattern": "Actionsheet",
+          "target": [
+            "TargetActionsheet"
+          ]
+        },
+        {
+          "name": "RouteAddbookmark",
+          "pattern": "Addbookmark",
+          "target": [
+            "TargetAddbookmark"
+          ]
+        },
+        {
+          "name": "RouteGetproperty",
+          "pattern": "Getproperty",
+          "target": [
+            "TargetGetproperty"
+          ]
+        },
+        {
+          "name": "RouteBreadcrumbs",
+          "pattern": "Breadcrumbs",
+          "target": [
+            "TargetBreadcrumbs"
+          ]
+        },
+        {
+          "name": "RouteMultiinput",
+          "pattern": "Multiinput",
+          "target": [
+            "TargetMultiinput"
+          ]
+        },
+        {
+          "name": "RouteDynamic",
+          "pattern": "Dynamic",
+          "target": [
+            "TargetDynamic"
+          ]
+        },
+        {
+          "name": "RouteDynamic1",
+          "pattern": "Dynamic1",
+          "target": [
+            "TargetDynamic1"
+          ]
+        },
+        {
+          "name": "RouteCustomerDetails",
+          "pattern": "customer/{customerId}",
+          "target": [
+            "TargetDynamic1"
+          ]
+        },
+        {
+          "name": "RouteSplit",
+          "pattern": "Split",
+          "target": [
+            "TargetSplit"
+          ]
+        },
+        {
+          "name": "RouteSplitApp",
+          "pattern": "SplitApp",
+          "target": [
+            "TargetSplitApp"
+          ]
+        },
+        {
+          "name": "RouteSmartTable",
+          "pattern": "SmartTable",
+          "target": [
+            "TargetSmartTable"
+          ]
+        },
+        {
+          "name": "RouteCSM",
+          "pattern": "CSM",
+          "target": [
+            "TargetCSM"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "id": "View1",
+          "name": "View1"
+        },
+        "TargetReadinput": {
+          "id": "Readinput",
+          "name": "Readinput"
+        },
+        "Targetdetails": {
+          "id": "details",
+          "name": "details"
+        },
+        "TargetActionsheet": {
+          "id": "Actionsheet",
+          "name": "Actionsheet"
+        },
+        "TargetAddbookmark": {
+          "id": "Addbookmark",
+          "name": "Addbookmark"
+        },
+        "TargetGetproperty": {
+          "id": "Getproperty",
+          "name": "Getproperty"
+        },
+        "TargetBreadcrumbs": {
+          "id": "Breadcrumbs",
+          "name": "Breadcrumbs"
+        },
+        "TargetMultiinput": {
+          "id": "Multiinput",
+          "name": "Multiinput"
+        },
+        "TargetDynamic": {
+          "id": "Dynamic",
+          "name": "Dynamic"
+        },
+        "TargetDynamic1": {
+          "id": "Dynamic1",
+          "name": "Dynamic1"
+        },
+        "TargetSplit": {
+          "id": "Split",
+          "name": "Split"
+        },
+        "TargetSplitApp": {
+          "id": "SplitApp",
+          "name": "SplitApp"
+        },
+        "TargetSmartTable": {
+          "id": "SmartTable",
+          "name": "SmartTable"
+        },
+        "TargetCSM": {
+          "id": "CSM",
+          "name": "CSM"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "project3.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

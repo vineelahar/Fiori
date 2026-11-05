@@ -1,0 +1,193 @@
+<mvc:View
+    controllerName="project3.controller.Split"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+     >
+
+    
+    <SplitApp id="splitApp">
+
+        <masterPages>
+            <Page title="Menu">
+                <content>
+                    <List>
+                        <StandardListItem
+                            title="Customer Table"
+                            type="Active"
+                            press=".onOpenCustomers" />
+                        <StandardListItem
+                            title="Customer Details"
+                            type="Active"
+                            press=".onOpenCustomerDetails" />
+                    </List>
+                </content>
+            </Page>
+        </masterPages>
+
+        <!-- <detailPages> -->
+
+            <!-- Initial detail page -->
+            <!-- <Page id="detail" title="Welcome">
+                <content>
+                    <MessageStrip
+                        text="Click Customer Details in the master menu to view customers."
+                        type="Information"
+                        showIcon="true" />
+                </content>
+            </Page> -->
+
+            <!-- Customer table -->
+            <!-- <Page
+                id="customerTablePage"
+                title="Customers"
+                showNavButton="true"
+                navButtonPress=".onBack">
+
+                <content>
+                    <Table
+                            id="customerTable"
+                            items="{/Customers}"
+                            mode="SingleSelectMaster"
+                            selectionChange=".onCustomerSelect">
+
+                        <columns>
+                            <Column>
+                                <Text text="Customer ID" />
+                            </Column>
+                            <Column>
+                                <Text text="Company Name" />
+                            </Column>
+                            <Column>
+                                <Text text="City" />
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem type="Navigation">
+                                <cells>
+                                    <Text text="{CustomerID}" />
+                                    <Text text="{CompanyName}" />
+                                    <Text text="{City}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+
+                    </Table>
+                </content>
+            </Page> -->
+
+            <!-- Selected customer details -->
+            <!-- <Page
+                id="detail3"
+                title="Customer Information"
+                showNavButton="true"
+                navButtonPress=".onBack">
+
+                <content>
+                    <VBox class="sapUiMediumMargin" gap="0.5rem">
+
+                        <Label text="Customer ID" />
+                        <Input value="{CustomerID}" editable="false"/>
+
+                        <Label text="Company Name" />
+                        <Input value="{CompanyName}" editable="false"/>
+
+                        <Label text="Contact Name" />
+                        <Input value="{ContactName}" editable="false"/>
+
+                        <Label text="Contact Title" />
+                        <Input value="{ContactTitle}" editable="false"/>
+
+                        <Label text="Address" />
+                        <Input value="{Address}" editable="false"/>
+
+                        <Label text="City" />
+                        <Input value="{City}" editable="false"/>
+
+                        <Label text="Country" />
+                        <Input value="{Country}" editable="false"/>
+
+                        <Label text="Phone" />
+                        <Input value="{Phone}" editable="false"/>
+
+                    </VBox>
+                </content>
+            </Page> -->
+
+        <!-- </detailPages> -->
+
+         
+        <detailPages>
+
+            <!-- Customer Table Page -->
+            <Page id="customerTablePage" title="Customer Table">
+                <content>
+                    <Table
+                        id="customerTable"
+                        items="{/Customers}"
+                        mode="SingleSelectMaster"
+                        selectionChange=".onCustomerSelect">
+
+                        <columns>
+                            <Column>
+                                <Text text="Customer ID" />
+                            </Column>
+                            <Column>
+                                <Text text="Company Name" />
+                            </Column>
+                            <Column>
+                                <Text text="City" />
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="{CustomerID}" />
+                                    <Text text="{CompanyName}" />
+                                    <Text text="{City}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+
+            <!-- Customer Details Page -->
+            <Page id="customerDetailsPage" title="Customer Details">
+                <content>
+                    <VBox class="sapUiMediumMargin" gap="0.5rem">
+
+                        <Label text="Customer ID" />
+                        <Text text="{selectedCustomer>/CustomerID}" />
+
+                        <Label text="Customer Name" />
+                        <Text text="{selectedCustomer>/CompanyName}" />
+
+                        <Label text="Contact Name" />
+                        <Text text="{selectedCustomer>/ContactName}" />
+
+                        <Label text="Address" />
+                        <Text text="{selectedCustomer>/Address}" />
+
+                        <Label text="City" />
+                        <Text text="{selectedCustomer>/City}" />
+
+                        <Label text="Country" />
+                        <Text text="{selectedCustomer>/Country}" />
+
+                        <Label text="Phone" />
+                        <Text text="{selectedCustomer>/Phone}" />
+
+                    </VBox>
+                </content>
+            </Page>
+
+        </detailPages>
+
+
+    </SplitApp>
+
+
+
+</mvc:View>

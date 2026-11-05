@@ -1,0 +1,18 @@
+<mvc:View controllerName="project3.controller.Readinput"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <!-- name -->
+        <Input
+            id="nameinput"
+             value="Vineela" 
+        />
+        <Button  
+            text="show name"
+            press="onShowname"
+        />
+        <Text
+            id="resultText" />
+       
+    </Page>
+</mvc:View>

@@ -1,0 +1,26 @@
+<mvc:View controllerName="project3.controller.Breadcrumbs"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <Breadcrumbs currentLocationText="Laptop">
+            <Link press=".onPress" text="Products"/>
+            <Link press=".onPress" text="Suppliers"/>
+            <Link press=".onPress" text="Titanium"/>
+            <Link press=".onPress" text="Ultra portable"/>
+            <Link press=".onPress" text="12 inch"/>
+            <Link press=".onPress" text="Super portable deluxe"/>
+            
+        </Breadcrumbs>
+        <Select id="separatorSelect" change=".onSeparatorChange">
+            <items>
+                <core:Item key=">" text="greaterthan" />
+                <core:Item key="&lt" text="Ampcent" />
+                <core:Item key="/" text="slash" />
+                <core:Item key="//" text="double slash" />
+            </items>
+        </Select>
+         
+       
+    </Page>
+</mvc:View>

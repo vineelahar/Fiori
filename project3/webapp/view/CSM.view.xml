@@ -1,0 +1,209 @@
+<mvc:View 
+    controllerName="project3.controller.CSM"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns="sap.m">
+    
+     <Page id="page" title="My To-DoList">
+
+        <content>
+            <!-- <smartFilterBar:SmartFilterBar
+                id="SalesFilterBar"
+                entitySet="salesorderSet"
+                persistencyKey="SalesFilterKey"
+                enableBasicSearch="false"
+                filterBarExpanded="true">
+
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration
+                        key="Sales_no"
+                        visibleInFilterBar="true" />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="Sales_Type"
+                        visibleInFilterBar="true" />
+                </smartFilterBar:controlConfiguration>
+
+            </smartFilterBar:SmartFilterBar> -->
+
+            
+            <!-- <smartTable:SmartTable
+                id="salesTable"
+                entitySet="salesorderSet"
+                smartFilterId="SalesFilterBar"
+                model="ZAK_SO_SRV"
+                enableAutoBinding="true"
+                tableType="Table"
+                header="Sales Orders"
+                initiallyVisibleFields="Sales_no,Sales_Type,Date,Customer,Sales_org" 
+            /> -->
+
+            <VBox class="sapUiSmallMargin">
+
+                <Title text="Sales Order Filters" />
+
+                <HBox wrap="Wrap" alignItems="Center">
+                    <Input
+                        id="salesNoInput"
+                        placeholder="Sales Number"
+                        width="180px"
+                        class="sapUiSmallMarginEnd" />
+
+                    <Input
+                        id="salesTypeInput"
+                        placeholder="Sales Type"
+                        width="150px"
+                        class="sapUiSmallMarginEnd" />
+
+                    <Button
+                        text="Search"
+                        icon="sap-icon://search"
+                        press=".onSearchSales"
+                        class="sapUiSmallMarginEnd" />
+
+                    <Button
+                        text="Clear"
+                        press=".onClearSales" />
+                </HBox>
+
+                <Table
+                    id="salesTable"
+                    headerText="Sales Orders"
+                    items="{ZAK_SO_SRV>/salesorderSet}">
+
+                    <columns>
+                        <Column>
+                            <Text text="Sales Number" />
+                        </Column>
+                        <Column>
+                            <Text text="Sales Type" />
+                        </Column>
+                        <Column>
+                            <Text text="Date" />
+                        </Column>
+                        <Column>
+                            <Text text="Customer" />
+                        </Column>
+                        <Column>
+                            <Text text="Sales Organization" />
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{ZAK_SO_SRV>Sales_no}" />
+                                <Text text="{ZAK_SO_SRV>Sales_Type}" />
+                                <Text text="{ZAK_SO_SRV>Date}" />
+                                <Text text="{ZAK_SO_SRV>Customer}" />
+                                <Text text="{ZAK_SO_SRV>Sales_org}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+
+                </Table>
+
+            </VBox>
+        </content>
+        <Toolbar >
+            <ToolbarSpacer/>
+        </Toolbar>
+       
+        <Page>
+            <Title text="Customers" />
+            <smartFilterBar:SmartFilterBar
+                id="customerFilterBar"
+                entitySet="Customers"
+                persistencyKey="CustomerFilterKey"
+                enableBasicSearch="false" />
+            <Table 
+                    id="CustomersTable"
+                    items="{/Customers}">
+
+                <columns>
+
+                    <Column>
+                        <Text text="CustomerID"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="CompanyName"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="ContactName"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="ContactTitle"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="Address"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="Country"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="City"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="Region"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="PostalCode"/>
+                    </Column>
+
+                    <Column >
+                        <Text text="Phone"/>
+                        
+                    </Column>
+
+                    <Column >
+                        <Text text="Fax"/>
+                    </Column>
+
+                </columns>
+
+                <items>
+
+                    <ColumnListItem type="Navigation" >
+
+                        <cells>
+
+        
+                            <Text text="{CustomerID}"/>
+
+                            <Text text="{CompanyName}"/>
+                            <Text text="{ContactName}"/>
+                            <Text text="{ContactTitle}"/>
+                            <Text text="{Address}"/>
+                            <Text text="{Country}"/>
+                            <Text text="{City}"/>
+                            <Text text="{Region}"/>
+                            <Text text="{PostalCode}"/>
+                        
+                            <Text text="{Phone}"/>
+                            <Text text="{Fax}"/>
+
+                        </cells>
+
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+        </Page>
+            
+        
+
+       
+
+    </Page>
+
+</mvc:View>

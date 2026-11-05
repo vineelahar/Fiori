@@ -1,0 +1,21 @@
+<mvc:View
+    controllerName="project3.controller.Addbookmark"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Add Bookmark button">
+
+        <content>
+
+            <Button
+                
+                text="Opoen Bookmark Dialog"
+                icon="sap-icon://add-favorite"
+                press=".onOpenBookmarkDialog" />
+
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,34 @@
+{
+    "Customers": [
+        {
+            "CustomerID": "C001",
+            "CompanyName": "ABC Technologies",
+            "ContactName": "Ravi Kumar",
+            "Address": "Madhapur",
+            "City": "Hyderabad",
+            "Country": "India",
+            "Phone": "9876543210",
+            "Fax": "040-123456"
+        },
+        {
+            "CustomerID": "C002",
+            "CompanyName": "XYZ Solutions",
+            "ContactName": "Priya Sharma",
+            "Address": "Gachibowli",
+            "City": "Hyderabad",
+            "Country": "India",
+            "Phone": "9876501234",
+            "Fax": "040-654321"
+        },
+        {
+            "CustomerID": "C003",
+            "CompanyName": "Global Systems",
+            "ContactName": "Arun Kumar",
+            "Address": "Kondapur",
+            "City": "Hyderabad",
+            "Country": "India",
+            "Phone": "9876512340",
+            "Fax": "040-456789"
+        }
+    ]
+}

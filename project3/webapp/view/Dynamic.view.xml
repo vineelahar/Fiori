@@ -1,0 +1,250 @@
+<mvc:View
+    controllerName="project3.controller.Dynamic"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+     xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar">
+
+    
+
+    <f:DynamicPage>
+
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Customers"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader>
+
+                <f:content>
+                    <!-- FilterBar will come here -->
+                    <fb:FilterBar
+                        id="CustomerFilterBar"
+                        useToolbar="false"
+                        search=".onSearch">
+                        <fb:filterGroupItems>
+                            <!-- <fb:FilterGroupItem
+                                name="Name"
+                                label="Name"
+                                groupName="Group1"
+                                
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                    <MultiComboBox id="customerCombo" items="{/Customers}">
+                                        <core:Item key="{CustomerID}" text="{CompanyName}"/>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem> -->
+                            <fb:FilterGroupItem
+                                name="Customer"
+                                label="Customer"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+
+                                <fb:control>
+                                    <MultiInput
+                                        id="customerInput"
+                                        placeholder="Select customers"
+                                        showSuggestion="false"
+                                        showValueHelp="false"
+                                        suggestionItemSelected=".onSuggestionItemSelected"
+                                        suggestionItems="{/Customers}">
+
+                                        <suggestionItems>
+                                            <core:Item
+                                                key="{CustomerID}"
+                                                text="{CompanyName}"/>
+                                        </suggestionItems>
+
+                                    </MultiInput>
+                                </fb:control>
+
+                            </fb:FilterGroupItem>
+
+                             <fb:FilterGroupItem
+                                name="Company"
+                                label="Company"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+
+                                <fb:control>
+                                    <MultiInput
+                                        id="CompanyInput"
+                                        placeholder="Select Company"
+                                        showSuggestion="true"
+                                        showValueHelp="false"
+                                        suggestionItemSelected=".onSuggestionCompanyItemSelected"
+                                        suggestionItems="{/Customers}">
+
+                                        <suggestionItems>
+                                            <core:Item
+                                                key="{CustomerID}"
+                                                text="{CompanyName}"/>
+                                        </suggestionItems>
+
+                                    </MultiInput>
+                                </fb:control>
+
+                            </fb:FilterGroupItem>
+
+                              <fb:FilterGroupItem
+                                name="Address"
+                                label="Address"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+
+                                <fb:control>
+                                    <MultiInput
+                                        id="AddressInput"
+                                        placeholder="Select Address"
+                                        showSuggestion="true"
+                                        showValueHelp="false"
+                                        suggestionItemSelected=".onSuggestionAddressItemSelected"
+                                        suggestionItems="{/Customers}">
+
+                                        <suggestionItems>
+                                            <core:Item
+                                                key="{CustomerID}"
+                                                text="{Address}"/>
+                                        </suggestionItems>
+
+                                    </MultiInput>
+                                </fb:control>
+
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem
+                                name="City"
+                                label="City"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                    <MultiComboBox id="CityCombo" items="{cityModel>/Cities}">
+                                        <core:Item key="{cityModel>City}" text="{cityModel>City}"/>
+                                        
+                                    </MultiComboBox>
+                                </fb:control>
+                                
+                            </fb:FilterGroupItem>
+                                
+
+                            <fb:FilterGroupItem
+                                name="Country"
+                                label="Country"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                    <MultiComboBox id="CountryCombo" items="{cityModel>/Countries}">
+                                        <core:Item key="{cityModel>Country}" text="{cityModel>Country}"/>
+                                    </MultiComboBox>
+                                </fb:control>
+                                
+                            </fb:FilterGroupItem>
+
+                          
+
+                          
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+
+                </f:content>
+
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+
+            <Table 
+                id="Customers"
+                 items="{/Customers}">
+
+            <columns>
+
+                <Column>
+                    <Text text="CustomerID"/>
+                </Column>
+
+                <Column>
+                    <Text text="CompanyName"/>
+                </Column>
+
+                <Column >
+                    <Text text="ContactName"/>
+                </Column>
+
+                <Column >
+                    <Text text="ContactTitle"/>
+                </Column>
+
+                <Column >
+                    <Text text="Address"/>
+                </Column>
+
+                <Column >
+                    <Text text="Country"/>
+                </Column>
+
+                <Column >
+                    <Text text="City"/>
+                </Column>
+
+                <Column >
+                    <Text text="Region"/>
+                </Column>
+
+                <Column >
+                    <Text text="PostalCode"/>
+                </Column>
+
+                <Column >
+                    <Text text="Phone"/>
+                    
+                </Column>
+
+                <Column >
+                    <Text text="Fax"/>
+                </Column>
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem type="Navigation" press=".onCustomerPress">
+
+                    <cells>
+
+    
+                        <Text text="{CustomerID}"/>
+
+                        <Text text="{CompanyName}"/>
+                        <Text text="{ContactName}"/>
+                        <Text text="{ContactTitle}"/>
+                        <Text text="{Address}"/>
+                        <Text text="{Country}"/>
+                        <Text text="{City}"/>
+                        <Text text="{Region}"/>
+                        <Text text="{PostalCode}"/>
+                      
+                        <Text text="{Phone}"/>
+                        <Text text="{Fax}"/>
+
+                     </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+
+        </f:content>
+
+    </f:DynamicPage>
+
+    
+
+</mvc:View>

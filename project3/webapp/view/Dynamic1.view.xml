@@ -1,0 +1,57 @@
+<mvc:View
+    controllerName="project3.controller.Dynamic1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        id="page"
+        title="Customers">
+
+        <content>
+
+            <form:SimpleForm
+                id="CustomersForm"
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <Label text="CustomerID"/>
+                <Text text="{CustomerID}"/>
+
+                <Label text="CompanyName"/>
+                <Text text="{CompanyName}"/>
+
+                <Label text="ContactName"/>
+                <Text text="{ContactName}"/>
+
+                <Label text="ContactTitle"/>
+                <Text text="{ContactTitle}"/>
+
+                <Label text="Address"/>
+                <Text text="{Address}"/>
+
+                <Label text="City"/>
+                <Text text="{City}"/>
+
+                <Label text="Region"/>
+                <Text text="{Region}"/>
+
+                <Label text="PostalCode"/>
+                <Text text="{PostalCode}"/>
+
+                <Label text="Country"/>
+                <Text text="{Country}"/>
+
+                <Label text="Phone"/>
+                <Text text="{Phone}"/>
+
+                <Label text="Fax"/>
+                <Text text="{Fax}"/>
+
+            </form:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

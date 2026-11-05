@@ -1,0 +1,160 @@
+<mvc:View controllerName="project3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <!-- <Button text="Click Me" press=".onButtonPress"/>  oEvent :Button Clicked-->
+
+        <!-- <Button text="Click Me" press=".onButtonPress"/> -->
+
+        <!--    // get the input text -->
+        <!-- <Input id="nameInput"/>
+        <Button text="Get Name" press=".onGetName"/> -->
+
+        <!-- Task 4 — selectionChange -->
+        <!-- <Table
+            mode="MultiSelect"
+            selectionChange=".onSelectionChange">
+
+            <columns>
+                <Column>
+                    <Text text="Name"/>
+                </Column>
+
+                <Column>
+                    <Text text="Age"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Harish"/>
+                        <Text text="25"/>
+                    </cells>
+                </ColumnListItem>
+
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Vineela"/>
+                        <Text text="22"/>
+                    </cells>
+                </ColumnListItem>
+
+            </items>
+
+        </Table> -->
+
+        <!-- Task 5 — selectionrow -->
+        <!-- <Table
+            mode="MultiSelect"
+            selectionChange=".onSelectionChange">
+
+            <columns>
+                <Column>
+                    <Text text="Name"/>
+                </Column>
+
+                <Column>
+                    <Text text="Age"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Harish"/>
+                        <Text text="25"/>
+                    </cells>
+                </ColumnListItem>
+
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Vineela"/>
+                        <Text text="22"/>
+                    </cells>
+                </ColumnListItem>
+
+            </items>
+
+        </Table> -->
+
+        <!-- Task 6 — selection multiple rows -->
+        <!-- <Table
+            mode="MultiSelect"
+            selectionChange=".onSelectionChange">
+
+            <columns>
+                <Column>
+                    <Text text="Name"/>
+                </Column>
+
+                <Column>
+                    <Text text="Age"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Harish"/>
+                        <Text text="25"/>
+                    </cells>
+                </ColumnListItem>
+
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Vineela"/>
+                        <Text text="22"/>
+                    </cells>
+                </ColumnListItem>
+
+            </items>
+
+        </Table> -->
+
+        <!-- Task 7 — Delete selected row -->
+        <Table
+            id="myTable"
+            mode="MultiSelect"
+            selectionChange=".onSelectionChange">
+           
+
+            <columns>
+                <Column>
+                    <Text text="Name"/>
+                </Column>
+
+                <Column>
+                    <Text text="Age"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Harish"/>
+                        <Text text="25"/>
+                    </cells>
+                </ColumnListItem>
+
+                <ColumnListItem>
+                    <cells>
+                        <Text text="Vineela"/>
+                        <Text text="22"/>
+                    </cells>
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+        <Button  id="deleteButton" text="Delete" press=".onDelete"/>
+
+
+
+
+       
+
+
+       
+    </Page>
+</mvc:View>

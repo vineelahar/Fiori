@@ -1,0 +1,49 @@
+<mvc:View
+    controllerName="project3.controller.Actionsheet"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Action Sheet">
+
+        <content>
+
+            <Button
+                id="Actions"
+                text="Actions"
+                press=".onOpenActionSheet" />
+
+            <ActionSheet
+                id="actionSheet">
+
+                <Button
+                    text="Accept"
+                    icon="sap-icon://accept"
+                    press=".onAccept" />
+
+                <Button
+                    text="Reject"
+                    press=".onReject" />
+
+                <Button
+                    text="Email"
+                    press=".onEmail" />
+
+                <Button
+                    text="Forward"
+                    press=".onForword" />
+
+                <Button
+                    text="Delete"
+                    press=".onDelete" />
+
+                <Button
+                    text="Other"
+                    press=".onOther" />
+
+            </ActionSheet>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

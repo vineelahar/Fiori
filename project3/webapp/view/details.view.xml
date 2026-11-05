@@ -1,0 +1,23 @@
+<mvc:View controllerName="project3.controller.details"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <!-- name -->
+        <Input
+            id="nameinput"
+            placeholder="Enter your Name"
+        />
+        <Input
+            id="cityinput"
+            placeholder="Enter your City"
+            
+        />
+        <Button  
+            text="show Details"
+            press="onShowdetails"
+        />
+        <Text
+            id="resultText" />
+       
+    </Page>
+</mvc:View>

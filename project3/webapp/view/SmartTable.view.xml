@@ -1,0 +1,157 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    controllerName="project3.controller.SmartTable"
+    height="100%">
+
+    <Page title="Northwind Customers">
+        <content>
+            <VBox fitContainer="true">
+                 <!-- <Button
+                    text="Open Customer Dialog"
+                    press=".onOpenCustomerDialog"/> -->
+
+                <smartFilterBar:SmartFilterBar
+                    id="customerFilterBar"
+                    entitySet="Customers"
+                    persistencyKey="CustomerFilter"
+                    showFilterConfiguration="true">
+
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration
+                            key="CustomerID"
+                            visibleInAdvancedArea="true"
+                            filterType="multi-value"
+                            hasValueHelpDialog="false"
+                            index="0">
+
+                            <smartFilterBar:customControl>
+                                <MultiInput
+                                    id="customerIdInput"
+                                    showValueHelp="true"
+                                    valueHelpRequest=".onOpenCustomerValueHelp"/>
+                            </smartFilterBar:customControl>
+
+                        </smartFilterBar:ControlConfiguration>
+
+                        <smartFilterBar:ControlConfiguration
+                            key="CompanyName"
+                            visibleInAdvancedArea="true"
+                            index="1"/>
+
+                        <smartFilterBar:ControlConfiguration
+                            key="City"
+                            visibleInAdvancedArea="true"
+                            index="2"/>
+
+                        <smartFilterBar:ControlConfiguration
+                            key="PostalCode"
+                            visibleInAdvancedArea="true"
+                            index="3"/>
+                    </smartFilterBar:controlConfiguration>
+                </smartFilterBar:SmartFilterBar>
+                <!-- <Table id="customerSelectionTable"
+                        mode="MultiSelect"
+                        items="{/Customers}">
+                    <columns>
+                        <Column >
+                            <Text text="CustomerID"/>
+                        
+                        </Column>
+                        <Column >
+                            <Text text="CompanyName"/>
+                        </Column>
+                        <Column >
+                            <Text text="City"/>
+                        </Column>
+                    </columns>
+                
+
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <Text text="{CustomerID}"/>
+                                <Text text="{CustomerName}"/>
+                                <Text text="{City}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table> -->
+                <smartTable:SmartTable
+                    id="customerSmartTable"
+                    entitySet="Customers"
+                    smartFilterId="customerFilterBar"
+                    tableType="ResponsiveTable"
+                    header="Customer Information"
+                    enableAutoBinding="true"
+                    useVariantManagement="true"
+                    useTablePersonalisation="true"
+                    persistencyKey="CustomerTableVariant"
+                    initiallyVisibleFields="CustomerID,CompanyName,City,Country,PostalCode"/>
+
+            </VBox>
+        </content>
+
+        <!-- <dependents>
+            <Dialog
+                id="customer"
+                title="Select Customer"
+                contentWidth="800px"
+                contentHeight="500px">
+
+                <content>
+                    <VBox>
+                        <SearchField
+                            id="customerSearch"
+                            placeholder="Search customers"
+                            liveChange=".onCustomerSearch"/>
+
+                        <Table
+                            id="customerSelectionTable"
+                            mode="MultiSelect"
+                            items="{/Customers}">
+
+                            <columns>
+                                <Column>
+                                    <Text text="Customer ID"/>
+                                </Column>
+                                <Column>
+                                    <Text text="Company Name"/>
+                                </Column>
+                                <Column>
+                                    <Text text="City"/>
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{CustomerID}"/>
+                                        <Text text="{CompanyName}"/>
+                                        <Text text="{City}"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </VBox>
+                </content>
+
+                <beginButton>
+                    <Button
+                        text="OK"
+                        press=".onCustomerConfirm"/>
+                </beginButton>
+
+                <endButton>
+                    <Button
+                        text="Cancel"
+                        press=".onCustomerCancel"/>
+                </endButton>
+               
+            </Dialog>
+        </dependents> -->
+    </Page>
+</mvc:View>
