@@ -1,0 +1,20 @@
+{
+    "countries": [
+        {
+            "key": "IN",
+            "name": "India"
+        },
+        {
+            "key": "US",
+            "name": "United States"
+        },
+        {
+            "key": "GB",
+            "name": "United Kingdom"
+        },
+        {
+            "key": "DE",
+            "name": "Germany"
+        }
+    ]
+}

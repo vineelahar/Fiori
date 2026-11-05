@@ -1,0 +1,223 @@
+<mvc:View
+    controllerName="project2.controller.Simpleform"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page id="page" title="Address">
+
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Title text="Address"/>
+                </contentLeft>
+
+                <contentRight>
+
+                    <!-- EDIT button -->
+                    <Button
+                        id="editButton"
+                        text="Edit"
+                        press=".onEdit"
+                        visible="{= !${/editMode} }"/>
+
+                    <!-- SAVE button -->
+                    <Button
+                        id="saveButton"
+                        text="Save"
+                        type="Emphasized"
+                        press=".onSave"
+                        visible="{/editMode}"/>
+
+                    <!-- CANCEL button -->
+                    <Button
+                        id="cancelButton"
+                        text="Cancel"
+                        press=".onCancel"
+                        visible="{/editMode}"/>
+
+                </contentRight>
+            </Bar>
+        </customHeader>
+
+        <content>
+
+            <f:SimpleForm
+                id="addressForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1">
+
+                <!-- ================= OFFICE ================= -->
+
+                <core:Title text="Office"/>
+
+                <!-- Name -->
+                <Label text="Name"/>
+
+                <Text
+                    text="{/name}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/name}"
+                    visible="{/editMode}"/>
+
+
+                <!-- Street / Number -->
+                <Label text="Street/No."/>
+
+                <Text
+                    text="{/street} {/number}"
+                    visible="{= !${/editMode} }"/>
+
+                <HBox
+                    visible="{/editMode}"
+                    width="100%">
+
+                    <Input
+                        value="{/street}"
+                        width="70%"/>
+
+                    <Input
+                        value="{/number}"
+                        width="30%"/>
+
+                </HBox>
+
+
+                <!-- ZIP / City -->
+                <Label text="ZIP Code/City"/>
+
+                <Text
+                    text="{/zip} {/city}"
+                    visible="{= !${/editMode} }"/>
+
+                <HBox
+                    visible="{/editMode}"
+                    width="100%">
+
+                    <Input
+                        value="{/zip}"
+                        width="35%"/>
+
+                    <Input
+                        value="{/city}"
+                        width="65%"/>
+
+                </HBox>
+
+
+                <!-- Country -->
+                <Label text="Country"/>
+
+                <Text
+                    text="{/country}"
+                    visible="{= !${/editMode} }"/>
+
+                <Select
+                    selectedKey="{/country}"
+                    visible="{/editMode}"
+                    width="100%">
+
+                    <items>
+                        <core:Item
+                            key="Germany"
+                            text="Germany"/>
+
+                        <core:Item
+                            key="India"
+                            text="India"/>
+
+                        <core:Item
+                            key="USA"
+                            text="USA"/>
+
+                        <core:Item
+                            key="UK"
+                            text="United Kingdom"/>
+                    </items>
+
+                </Select>
+
+
+                <!-- ================= ONLINE ================= -->
+
+                <core:Title text="Online"/>
+
+                <!-- Web -->
+                <Label text="Web"/>
+
+                <Text
+                    text="{/web}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/web}"
+                    visible="{/editMode}"/>
+
+
+                <!-- Twitter -->
+                <Label text="Twitter"/>
+
+                <Text
+                    text="{/twitter}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/twitter}"
+                    visible="{/editMode}"/>
+
+
+                <!-- Email -->
+                <Label text="Email"/>
+
+                <Text
+                    text="{/email}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/email}"
+                    type="Email"
+                    visible="{/editMode}"/>
+
+
+                <!-- Telephone -->
+                <Label text="Tel"/>
+
+                <Text
+                    text="{/telephone}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/telephone}"
+                    type="Tel"
+                    visible="{/editMode}"/>
+
+
+                <!-- SMS -->
+                <Label text="SMS"/>
+
+                <Text
+                    text="{/sms}"
+                    visible="{= !${/editMode} }"/>
+
+                <Input
+                    value="{/sms}"
+                    type="Tel"
+                    visible="{/editMode}"/>
+
+            </f:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

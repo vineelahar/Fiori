@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Popover
+        id="srPopover"
+        title="Sales Revenue">
+
+        <VBox class="sapUiSmallMargin">
+
+            <Text text="Sales Revenue Details"/>
+
+            <ObjectNumber
+                number="2.16"
+                unit="M"
+                state="Error"/>
+
+        </VBox>
+
+    </Popover>
+
+</core:FragmentDefinition>

@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="project2.controller.Uploadfile"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified">
+
+    <Page id="page" title="File Upload">
+
+        <content>
+
+            <Toolbar>
+
+                <unified:FileUploader
+                    id="fileUploader"
+                    buttonText="Upload"
+                    icon="sap-icon://upload"
+                    change=".onFileSelected" />
+
+            </Toolbar>
+
+
+            <List
+                id="fileList"
+                items="{/files}">
+
+                <CustomListItem>
+
+                    <HBox
+                        width="100%"
+                        justifyContent="SpaceBetween">
+
+                        <Text
+                            text="{name}" />
+
+                        <HBox>
+
+                            <Button
+                                text="Edit"
+                                press=".onEdit" />
+
+                            <Button
+                                text="Delete"
+                                press=".onDelete" />
+                            <Button text="Download" press=".onDownload"/>
+
+                        </HBox>
+
+                    </HBox>
+
+                </CustomListItem>
+
+            </List>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

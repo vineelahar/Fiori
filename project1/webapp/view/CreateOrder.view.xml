@@ -1,0 +1,117 @@
+<mvc:View
+    controllerName="project1.controller.CreateOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page title="Create Sales Order">
+        <content>
+            <VBox class="sapUiSmallMargin">
+
+                <Title text="Sales Order Header"/>
+
+                <form:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout">
+
+                    <Label text="Sales Order Type"/>
+                    <Input value="{createModel>/header/SalesOrderType}"/>
+
+                    <Label text="Sales Organization"/>
+                    <Input value="{createModel>/header/SalesOrganization}"/>
+
+                    <Label text="Distribution Channel"/>
+                    <Input value="{createModel>/header/DistributionChannel}"/>
+
+                    <Label text="Organization Division"/>
+                    <Input value="{createModel>/header/OrganizationDivision}"/>
+
+                    <Label text="SoldToParty"/>
+                    <Input
+                        value="{createModel>/header/SoldToParty}"
+                        placeholder="Enter Customer ID"/>
+                    <Label text="Customer PO Number"/>
+                    <Input value="{createModel>/header/PurchaseOrderByCustomer}"/>
+
+                    <Label text="Requested Delivery Date"/>
+                    <DatePicker
+                        dateValue="{createModel>/header/RequestedDeliveryDate}"
+                        displayFormat="dd-MM-yyyy"/>
+
+                </form:SimpleForm>
+
+                <Toolbar>
+                    <Title text="Items"/>
+                    <ToolbarSpacer/>
+                    <Button
+                        text="Add Item"
+                        icon="sap-icon://add"
+                        press="onAddItem"/>
+                </Toolbar>
+
+                <Table
+                    id="itemsTable"
+                    items="{createModel>/items}">
+
+                    <columns>
+                        <!-- <Column><Text text="ItemNumber"/></Column> -->
+                        <Column><Text text="Material"/></Column>
+                        <Column><Text text="Quantity"/></Column>
+                        <!-- <Column><Text text="Unit"/></Column> -->
+                        <Column><Text text="Plant"/></Column>
+                        <Column><Text text="Storage Location"/></Column>
+                        <Column width="4rem"/>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <!-- <Input value="{createModel>ItemNumber}"/> -->
+                                <!-- <Select
+                                    selectedKey="{createModel>Material}"
+                                    items="{materialsModel>/results}">
+                                    <core:Item
+                                        key="{materialsModel>Material}"
+                                        text="{materialsModel>Material}"/>
+                                </Select> -->
+                                <Input
+                                    value="{createModel>Material}"
+                                    showValueHelp="true"
+                                    valueHelpRequest="onMaterialValueHelp"
+                                    placeholder="Select material"/>
+
+                                <Input
+                                    value="{createModel>RequestedQuantity}"
+                                    type="Number"/>
+
+                                <!-- <Input value="{createModel>RequestedQuantityUnit}"/> -->
+
+                                <Input value="{createModel>ProductionPlant}"/>
+
+                                <Input value="{createModel>StorageLocation}"/>
+
+                                <Button
+                                    icon="sap-icon://delete"
+                                    type="Transparent"
+                                    press="onDeleteItem"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+
+            </VBox>
+        </content>
+
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button text="Cancel" press="onCancel"/>
+                <Button
+                    text="Save"
+                    type="Emphasized"
+                    press="onSave"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

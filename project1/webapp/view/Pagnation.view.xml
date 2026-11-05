@@ -1,0 +1,53 @@
+
+<mvc:View
+    controllerName="project1.controller.Pagnation"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="page" title="My To-DoList">
+        <Table
+            id="salesorderSet"
+            mode="SingleSelectMaster"
+            busyIndicatorDelay="0"
+            items="{pageData>/results}">
+
+            <columns>
+                <Column><Text text="Sales_no"/></Column>
+                <Column><Text text="Sales_Type"/></Column>
+                <Column><Text text="Date"/></Column>
+                <Column><Text text="Customer"/></Column>
+                <Column><Text text="Sales_org"/></Column>
+            </columns>
+
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{pageData>Sales_no}"/>
+                        <Text text="{pageData>Sales_Type}"/>
+                        <Text text="{pageData>Date}"/>
+                        <Text text="{pageData>Customer}"/>
+                        <Text text="{pageData>Sales_org}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+        <HBox justifyContent="Center" class="sapUiSmallMargin">
+            <Button
+                text="Previous"
+                press=".onPrevious"
+                enabled="{pagination>/hasPrevious}"
+            />
+            <Button text="{pagination>/currentPage}"
+                type="Emphasized"
+                class="sapUiSmallMarginBeginEnd"/>
+            
+
+            <Button
+                text="Next"
+                press=".onNext"
+                enabled="{pagination>/hasNext}"
+                class="sapUiSmallMarginBegin"/>
+        </HBox>
+    </Page>
+</mvc:View>

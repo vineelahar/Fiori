@@ -1,0 +1,74 @@
+{
+    "customers": [
+        {
+            "CustomerID": "1001",
+            "Name": "Vineela",
+            "City": "Hyderabad",
+            "Country": "India",
+            "editing": false
+        },
+        {
+            "CustomerID": "1002",
+            "Name": "Rahul",
+            "City": "Bangalore",
+            "Country": "India",
+            "editing": false
+        },
+        {
+            "CustomerID": "1003",
+            "Name": "Harish",
+            "City": "New York",
+            "Country": "USA",
+            "editing": false
+        },
+        {
+            "CustomerID": "1004",
+            "Name": "Dev",
+            "City": "London",
+            "Country": "UK",
+            "editing": false
+        },
+        {
+            "CustomerID": "1005",
+            "Name": "Arjun",
+            "City": "Chennai",
+            "Country": "India",
+            "editing": false
+        },
+        {
+            "CustomerID": "1006",
+            "Name": "Priya",
+            "City": "Mumbai",
+            "Country": "India",
+            "editing": false
+        },
+        {
+            "CustomerID": "1007",
+            "Name": "John",
+            "City": "Chicago",
+            "Country": "USA",
+            "editing": false
+        },
+        {
+            "CustomerID": "1008",
+            "Name": "David",
+            "City": "Manchester",
+            "Country": "UK",
+            "editing": false
+        },
+        {
+            "CustomerID": "1009",
+            "Name": "Kiran",
+            "City": "Pune",
+            "Country": "India",
+            "editing": false
+        },
+        {
+            "CustomerID": "1010",
+            "Name": "Suresh",
+            "City": "Delhi",
+            "Country": "India",
+            "editing": false
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+<mvc:View
+    controllerName="project2.controller.Pdfpopup"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Image Popup">
+
+        <content>
+
+            <Carousel
+                id="myCarousel"
+                height="600px"
+                width="100%">
+
+                <pages>
+
+                    <Image
+                        id="img1"
+                        src="model/images/maserati-mc20.jpg"
+                        alt="Maserati MC20"
+                        press=".onMaseratiPress"
+                        width="800px"
+                        height="500px"/>
+
+                    <Image
+                        id="img2"
+                        src="model/images/BMW-Z4-M40i-1-Copy.jpg"
+                        alt="BMW Z4"
+                        press=".onBmwPress"
+                        width="800px"
+                        height="500px"/>
+
+                </pages>
+
+            </Carousel>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,303 @@
+{
+  "_version": "1.89.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.32.0",
+      "toolsId": "bd5f2a51-08b8-461f-9faa-06fdff558a46"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZBS_SALES_V1_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZAK_SO_SRV": {
+        "uri": "/sap/opu/odata/sap/ZAK_SO_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZAK_SO_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZEXCEL_API_SRV": {
+        "uri": "/sap/opu/odata/sap/ZEXCEL_API_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/ZEXCEL_API_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "ZRK_MARA_V2_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZRK_MARA_V2_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZRK_MARA_V2/ZRK_MARA_V2_VAN.xml"
+        }
+      },
+      "ZRK_MARA_V2": {
+        "uri": "/sap/opu/odata/sap/ZRK_MARA_V2/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZRK_MARA_V2_VAN"
+          ],
+          "localUri": "localService/ZRK_MARA_V2/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      },
+      "API_SALES_ORDER_ANNO_MDL": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='API_SALES_ORDER_ANNO_MDL',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/API_SALES_ORDER_SRV/API_SALES_ORDER_ANNO_MDL.xml"
+        }
+      },
+      "API_SALES_ORDER_SRV": {
+        "uri": "/sap/opu/odata/sap/API_SALES_ORDER_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "API_SALES_ORDER_ANNO_MDL"
+          ],
+          "localUri": "localService/API_SALES_ORDER_SRV/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.152.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.comp": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "SalesOrder": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      },
+      "ZAK_SO_SRV": {
+        "dataSource": "ZAK_SO_SRV",
+        "preload": true,
+        "settings": {}
+      },
+      "ZEXCEL_API_SRV": {
+        "dataSource": "ZEXCEL_API_SRV",
+        "preload": true,
+        "settings": {}
+      },
+      "": {
+        "dataSource": "ZRK_MARA_V2",
+        "preload": true,
+        "settings": {}
+      },
+      "API_SALES_ORDER_SRV": {
+        "dataSource": "API_SALES_ORDER_SRV",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "project1.view",
+        "async": true,
+        "viewPath": "project1.view"
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "RouteView2",
+          "pattern": "View2",
+          "target": [
+            "TargetView2"
+          ]
+        },
+        {
+          "name": "SalesDetail",
+          "pattern": "View3/{path}",
+          "target": [
+            "TargetView3"
+          ]
+        },
+        {
+          "name": "RouteSmartGrid",
+          "pattern": "SmartGrid",
+          "target": [
+            "TargetSmartGrid"
+          ]
+        },
+        {
+          "name": "RoutePagnation",
+          "pattern": "Pagnation",
+          "target": [
+            "TargetPagnation"
+          ]
+        },
+        {
+          "name": "RouteExcel",
+          "pattern": "Excel",
+          "target": [
+            "TargetExcel"
+          ]
+        },
+        {
+          "name": "RouteExceltable",
+          "pattern": "Exceltable",
+          "target": [
+            "TargetExceltable"
+          ]
+        },
+        {
+          "name": "RouteFile",
+          "pattern": "File",
+          "target": [
+            "TargetFile"
+          ]
+        },
+         {
+          "name": "SalesOrder",
+          "pattern": "SalesOrder",
+          "target": [
+            "TargetSalesOrder"
+          ]
+        },
+         {
+          "name": "SalesOrderItems",
+          "pattern": "SalesOrderItems/{SalesOrder}",
+          "target": [
+            "TargetSalesOrderItems"
+          ]
+        },
+         {
+          "name": "CreateOrder",
+          "pattern": "CreateOrder",
+          "target": [
+            "TargetCreateOrder"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetView1": {
+          "id": "View1",
+          "name": "View1"
+        },
+        "TargetView2": {
+          "id": "View2",
+          "name": "View2"
+        },
+        "TargetView3": {
+          "id": "View3",
+          "name": "View3"
+        },
+        "TargetSmartGrid": {
+          "id": "SmartGrid",
+          "name": "SmartGrid"
+        },
+        "TargetPagnation": {
+          "id": "Pagnation",
+          "name": "Pagnation"
+        },
+        "TargetExcel": {
+          "id": "Excel",
+          "name": "Excel"
+        },
+        "TargetExceltable": {
+          "id": "Exceltable",
+          "name": "Exceltable"
+        },
+        "TargetFile": {
+          "id": "File",
+          "name": "File"
+        },
+         "TargetSalesOrder": {
+          "id": "SalesOrder",
+          "name": "SalesOrder"
+        },
+         "TargetSalesOrderItems": {
+          "id": "SalesOrderItems",
+          "name": "SalesOrderItems"
+        },
+        "TargetCreateOrder": {
+          "id":"CreateOrder",
+          "name": "CreateOrder"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "project1.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "project1"
+  }
+}

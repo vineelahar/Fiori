@@ -1,0 +1,67 @@
+<mvc:View 
+    controllerName="project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    
+     <Page id="page" title="My To-DoList">
+        <Button
+                text="Check Records"
+                press=".onCheckRecords" />
+        <Table 
+            id="salesTable"
+            mode="SingleSelectMaster"
+            selectionChange=".onRowSelect"
+            items="{ZAK_SO_SRV>/salesorderSet}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Sales_no"/>
+                </Column>
+
+                <Column>
+                    <Text text="Sales_Type"/>
+                </Column>
+
+                <Column>
+                    <Text text="Date"/>
+                </Column>
+
+                <Column>
+                    <Text text="Customer"/>
+                </Column>
+                <Column>
+                    <Text text="Sales_org"/>
+                </Column>
+
+                
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+                        <Text text="{ZAK_SO_SRV>Sales_no}"/>
+
+                        <Text text= "{ZAK_SO_SRV>Sales_Type}"/>
+                        <Text text= "{ZAK_SO_SRV>Date}"/>
+                        <Text text= "{ZAK_SO_SRV>Customer}"/>
+                        <Text text= "{ZAK_SO_SRV>Sales_org}"/>
+                                
+
+                        
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+
+    </Page>
+
+</mvc:View>

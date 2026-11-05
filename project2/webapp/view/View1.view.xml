@@ -1,0 +1,28 @@
+<mvc:View
+    controllerName="project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="My Projects">
+
+        <content>
+
+            <HBox>
+
+                <GenericTile
+                    id="Tile1"
+                    header="My Tile1"
+                    press=".onPress" />
+
+                <GenericTile
+                    id="Tile2"
+                    header="My Tile2"
+                    press=".onPress" />
+
+            </HBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

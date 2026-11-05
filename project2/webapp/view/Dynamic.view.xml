@@ -1,0 +1,376 @@
+<mvc:View
+    controllerName="project2.controller.Dynamic"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    height="100%">
+
+    <f:DynamicPage id="dynamicPage">
+
+     
+        <f:title>
+            <f:DynamicPageTitle>
+
+                <f:heading>
+                    <Title text="Header Title"/>
+                </f:heading>
+
+            
+                <f:expandedContent>
+                    <Label text="This is a subheading"/>
+                </f:expandedContent>
+
+                <f:content>
+                    <OverflowToolbar>
+
+                        <GenericTag
+                            id="genericTag"
+                            text="SR"
+                            status="Error"
+                            press=".onGenericTagPress"
+                            design="StatusIconHidden">
+
+                            <ObjectNumber
+                                number="2"
+                                unit="M"
+                                emphasized="false"
+                                state="Error"/>
+
+                        </GenericTag>
+
+                    </OverflowToolbar>
+                </f:content>
+
+                <f:actions>
+
+                    <Button
+                        text="Edit"
+                        type="Emphasized"/>
+
+                    <Button
+                        text="Delete"/>
+
+                    <Button
+                        text="Copy"/>
+
+                    <Button
+                        icon="sap-icon://action"/>
+
+                </f:actions>
+
+            </f:DynamicPageTitle>
+            
+
+        </f:title>
+
+
+        <!-- ================= HEADER ================= -->
+        <f:header>
+
+            <f:DynamicPageHeader>
+
+                <HBox>
+
+                    <VBox class="sapUiMediumMarginEnd">
+
+                        <ObjectAttribute
+                            title="Location"
+                            text="Warehouse A"/>
+
+                        <ObjectAttribute
+                            title="Hallway"
+                            text="23L"/>
+
+                        <ObjectAttribute
+                            title="Rack"
+                            text="34"/>
+
+                    </VBox>
+
+                    <VBox>
+
+                        <ObjectAttribute
+                            title="Availability"/>
+
+                        <ObjectStatus
+                            text="In Stock"
+                            state="Success"/>
+
+                    </VBox>
+
+                </HBox>
+
+            </f:DynamicPageHeader>
+
+        </f:header>
+
+
+        <!-- ================= TABLE ================= -->
+        <f:content>
+
+            <t:Table
+                id="productTable"
+                rows="{/Products}"
+                selectionMode="MultiToggle">
+
+                <!-- Product Name -->
+                <t:Column width="12rem">
+
+                    <Label text="Product Name"/>
+
+                    <t:template>
+                        <Text text="{ProductName}"/>
+                    </t:template>
+
+                </t:Column>
+                
+
+
+                <!-- Product ID -->
+                <t:Column width="10rem">
+
+                    <Label text="Product ID"/>
+
+                    <t:template>
+                        <Text text="{ProductId}"/>
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Quantity -->
+                <t:Column width="10rem">
+
+                    <Label text="Quantity"/>
+
+                    <t:template>
+                        <Text text="{Quantity}"/>
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Status -->
+                <t:Column width="10rem">
+
+                    <Label text="Status"/>
+
+                    <t:template>
+
+                        <Select selectedKey="{Status}">
+
+                            <items>
+
+                                <core:Item
+                                    key="Available"
+                                    text="Available"/>
+
+                                <core:Item
+                                    key="Low Stock"
+                                    text="Low Stock"/>
+
+                                <core:Item
+                                    key="Out of Stock"
+                                    text="Out of Stock"/>
+
+                            </items>
+
+                        </Select>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Price -->
+                <t:Column width="8rem">
+
+                    <Label text="Price"/>
+
+                    <t:template>
+
+                        <Input
+                            value="{Price}"
+                            type="Number"/>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Supplier -->
+                <t:Column width="10rem">
+
+                    <Label text="Supplier"/>
+
+                    <t:template>
+
+                        <Select selectedKey="{Supplier}">
+
+                            <items>
+
+                                <core:Item
+                                    key="Alpha Printers"
+                                    text="Alpha Printers"/>
+
+                                <core:Item
+                                    key="Printer for All"
+                                    text="Printer for All"/>
+
+                                <core:Item
+                                    key="Oxynum"
+                                    text="Oxynum"/>
+
+                                <core:Item
+                                    key="Technocom"
+                                    text="Technocom"/>
+
+                            </items>
+
+                        </Select>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Image -->
+                <t:Column width="9rem">
+
+                    <Label text="Image"/>
+
+                    <t:template>
+                        <VBox>
+                            <Button
+                                text="Show Image"
+                                icon="{Image}"
+                                press=".onShowImage"/>
+                                <Image
+                                    id="Image"
+                                    width="60px"
+                                    height="60px"
+                                    visible="false"
+                                    densityAware="false"
+                                    press=".onImagePress"
+                                    
+                                />
+                               
+                        </VBox>
+                                <!-- <Image
+                                    id="selectedImage"
+                                    width="300px"
+                                    height="300px"
+                                    visible="false"/> -->
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Details -->
+                <t:Column width="9rem">
+
+                    <Label text="Details"/>
+
+                    <t:template>
+
+                        <Button
+                            text="Show Details"
+                            press=".onDetailsPress"/>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Available -->
+                <t:Column width="8rem">
+
+                    <Label text="Available"/>
+
+                    <t:template>
+
+                        <CheckBox
+                            selected="{Available}"/>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Category -->
+                <t:Column width="10rem">
+
+                    <Label text="Category"/>
+
+                    <t:template>
+
+                        <Select selectedKey="{Category}">
+
+                            <items>
+
+                                <core:Item
+                                    key="Laptops"
+                                    text="Laptops"/>
+
+                                <core:Item
+                                    key="Accessories"
+                                    text="Accessories"/>
+
+                                <core:Item
+                                    key="Flat Screen Monitors"
+                                    text="Flat Screen Monitors"/>
+
+                                <core:Item
+                                    key="Printers"
+                                    text="Printers"/>
+
+                            </items>
+
+                        </Select>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Status -->
+                <t:Column width="10rem">
+
+                    <Label text="Status"/>
+
+                    <t:template>
+
+                        <ObjectStatus
+                            text="{Status}"
+                            state="{StatusState}"/>
+
+                    </t:template>
+
+                </t:Column>
+
+
+                <!-- Delivery Date -->
+                <t:Column width="12rem">
+
+                    <Label text="Delivery Date"/>
+
+                    <t:template>
+
+                        <DatePicker
+                            value="{DeliveryDate}"
+                            displayFormat="dd-MM-yyyy"/>
+
+                    </t:template>
+
+                </t:Column>
+
+            </t:Table>
+
+        </f:content>
+
+    </f:DynamicPage>
+
+</mvc:View>

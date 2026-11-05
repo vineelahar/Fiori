@@ -1,0 +1,156 @@
+
+<mvc:View
+    controllerName="project1.controller.SalesOrderItems"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        title="Sales Order Items"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+
+        <headerContent>
+            <Button
+                text="Edit"
+                type="Emphasized"
+                visible="{= !${itemsModel>/isEditMode} }"
+                press="onEdit"/>
+
+            <Button
+                text="Save"
+                type="Emphasized"
+                visible="{itemsModel>/isEditMode}"
+                press="onSave"/>
+
+            <Button
+                text="Cancel"
+                visible="{itemsModel>/isEditMode}"
+                press="onCancel"/>
+            
+          
+           
+        </headerContent>
+
+        <!-- Header fields -->
+        <content>
+            <VBox class="sapUiSmallMargin">
+
+                <Title text="Sales Order Header"/>
+
+                <Label text="Sales Order"/>
+                <Text text="{itemsModel>/header/SalesOrder}"/>
+
+                <Label text="Sales Organization"/>
+                <Text text="{itemsModel>/header/SalesOrganization}"/>
+
+                <Label text="Order Type"/>
+                <Text text="{itemsModel>/header/SalesOrderType}"/>
+
+                <Label text="Sold-To Party"/>
+                <Text text="{itemsModel>/header/SoldToParty}"/>
+
+                <Label text="Delivery Date"/>
+
+                <Text
+                    text="{
+                        path: 'itemsModel>/header/RequestedDeliveryDate',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            pattern: 'dd-MM-yyyy'
+                        }
+                    }"
+                visible="{= !${itemsModel>/isEditMode} }"/>
+
+                <DatePicker
+                    value="{
+                        path: 'itemsModel>/header/RequestedDeliveryDate',
+                        type: 'sap.ui.model.type.Date',
+                        formatOptions: {
+                            pattern: 'dd-MM-yyyy'
+                        }
+                    }"
+                visible="{itemsModel>/isEditMode}"/>
+
+            </VBox>
+
+            <!-- Item table -->
+            <Title text="Sales Order Items"/>
+
+            <Table
+                id="itemsTable1"
+                items="{itemsModel>/items}"
+                mode="MultiSelect"
+                visible="true"
+                selectionChange="onItemSelectionChange">
+
+                <headerToolbar>
+                    <Toolbar>
+                   
+                        <ToolbarSpacer/>
+                        <Button
+                            text="Delete"
+                            icon="sap-icon://delete"
+                            enabled="{itemsModel>/hasSelectedItems}"
+                            visible="true"
+                            press="onDeleteSelectedItems"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="Material"/>
+                    </Column>
+                    <Column>
+                        <Text text="Quantity"/>
+                    </Column>
+                    <Column>
+                        <Text text="Plant"/>
+                    </Column>
+                    <Column>
+                        <Text text="Storage Location"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!-- Material: read-only -->
+                            <Text text="{itemsModel>Material}"/>
+
+                            <!-- Quantity -->
+                            <VBox>
+                                <Input
+                                    value="{itemsModel>RequestedQuantity}"
+                                    type="Number"
+                                    visible="{itemsModel>/isEditMode}"/>
+
+                                <Text
+                                    text="{itemsModel>RequestedQuantity}"
+                                    visible="{= !${itemsModel>/isEditMode} }"/>
+                            </VBox>
+                            <!-- Plant -->
+                            <VBox>
+                                <Input
+                                    value="{itemsModel>ProductionPlant}"
+                                    visible="{itemsModel>/isEditMode}"/>
+
+                                <Text
+                                    text="{itemsModel>ProductionPlant}"
+                                    visible="{= !${itemsModel>/isEditMode} }"/>
+                            </VBox>
+                            <!-- Storage Location -->
+                            <Input
+                                value="{itemsModel>StorageLocation}"
+                                visible="{itemsModel>/isEditMode}"/>
+
+                            <Text
+                                text="{itemsModel>StorageLocation}"
+                                visible="{= !${itemsModel>/isEditMode} }"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
+

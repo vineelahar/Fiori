@@ -1,0 +1,290 @@
+<mvc:View
+    controllerName="project1.controller.Excel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Page title="Excel Data">
+        <content>
+
+            <Toolbar >
+                <HBox
+                    alignItems="Center"
+                    class="sapUiSmallMargin"
+                    wrap="Wrap">
+
+                    <u:FileUploader
+                        id="excelUploader"
+                        fileType="xlsx"
+                        buttonText="Choose Excel File"
+                        change=".onExcelUpload"
+                        class="sapUiSmallMargin"/>
+
+                    <Button
+                        text="Upload "
+                        icon="sap-icon://upload"
+                        type="Emphasized"
+                        press=".onUploadPress"
+                        class="sapUiSmallMarginBegin"
+                    />
+                    
+                    <ToolbarSpacer />  
+
+                    <MenuButton
+                        id="exportMenuButton"
+                        text="Export"
+                        icon="sap-icon://excel-attachment"
+                        type="Default"
+                        buttonMode="Split"
+                        defaultAction=".onExport">
+                    
+
+                        <menu>
+                            <Menu>
+                                <items>
+                                    <MenuItem
+                                        text="Export"
+                                        icon="sap-icon://download"
+                                        press=".onExport"/>
+
+                                    <MenuItem
+                                        text="Export As..."
+                                        icon="sap-icon://action-settings"
+                                        press=".onExportAs"/>
+                                </items>
+                            </Menu>
+                        </menu>
+                    </MenuButton>
+
+                    
+                    <!-- <Select id="updateScope" selectedKey="SELECTED">
+                        <items>
+                            <core:Item key="SELECTED" text="Selected Rows"/>
+                            <core:Item key="ALL" text="All Rows"/>
+                        </items>
+                    </Select> -->
+
+                    <MenuButton
+                        id="massUpdateButton"
+                        text="Mass Update"
+                        icon="sap-icon://edit"
+                        type="Emphasized"
+                        visible="{excelModel>/isMassVisible}"
+                        >
+
+                        <menu>
+                            <Menu>
+                                <items>
+                                    <MenuItem text="MANDIT"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="STD_ID"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="STD_NAME"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="DOB"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="GENDER"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="FATHER_NAME"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="MOTHER_NAME"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="AADHAR_NUMBER"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="MOBILE"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="FEE"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="FEE_CURRENCY"
+                                        press=".onChooseField"/>
+                                    <MenuItem text="WEIGHT"
+                                        press=".onChooseField"/>
+                                </items>
+                            </Menu>
+                        </menu>
+                    </MenuButton>
+
+                    <Button
+                        text="Edit"
+                        icon="sap-icon://edit"
+                        press=".onEdit" 
+                        visible="{= !${viewModel>/editMode} }"
+                        
+                    />
+                    
+
+                    <Button
+                        text="Save"
+                        icon="sap-icon://save"
+                        press=".onSave"
+                        visible="{viewModel>/editMode}" />
+
+                    <Button
+                        text="Cancel"
+                        press=".onCancel"
+                        visible="{viewModel>/editMode}" />
+                    <Toolbar >
+                        <Button
+                            text="Delete"
+                            press=".onDelete"
+                            />
+                    </Toolbar>
+
+                </HBox>
+            </Toolbar>
+
+            <!-- Excel Table -->
+            <Table
+                id="excelTable"
+                items="{excelModel>/results}"
+                mode="MultiSelect"
+                selectionChange=".onSelectionChange"
+                growing="true"
+                growingThreshold="10">
+
+                <columns>
+                    <Column><Text text="MANDIT"/></Column>
+                    <Column><Text text="STD_ID"/></Column>
+                    <Column><Text text="STD_NAME"/></Column>
+                    <Column><Text text="DOB"/></Column>
+                    <Column><Text text="GENDER"/></Column>
+                    <Column><Text text="FATHER_NAME"/></Column>
+                    <Column><Text text="MOTHER_NAME"/></Column>
+                    <Column><Text text="AADHAR_NUMBER"/></Column>
+                    <Column><Text text="MOBILE"/></Column>
+                    <Column><Text text="FEE"/></Column>
+                    <Column><Text text="FEE_CURRENCY"/></Column>
+                    <Column><Text text="WEIGHT"/></Column>
+                
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{excelModel>MANDIT}"/>
+                            <Text text="{excelModel>STD_ID}"/>
+
+                            <!-- Click student name to edit -->
+                            <Link
+                                text="{excelModel>STD_NAME}"
+                                press=".onStudentNamePress"/>
+
+                            <Text text="{excelModel>DOB}"/>
+                            <!-- <Input value="{excelModel>GENDER}"  editable="{excelModel>/isEditing}"/> -->
+                            <!-- Normal display -->
+                            <VBox>
+                                <Text
+                                    text="{excelModel>GENDER}"
+                                    visible="{= !${viewModel>/editMode} }" 
+                                    width="100%"/>
+
+                                <!-- Editable display -->
+                                <Input
+                                    value="{excelModel>GENDER}"
+                                    visible="{viewModel>/editMode}" />
+                            </VBox>
+                            <Text text="{excelModel>FATHER_NAME}"/>
+                            <Text text="{excelModel>MOTHER_NAME}"/>
+                            <Text text="{excelModel>AADHAR_NUMBER}"/>
+                            <Text text="{excelModel>MOBILE}"/>
+                            <!-- <Input value="{excelModel>FEE}"  editable="{excelModel>/isEditing}"/> -->
+                            <VBox>
+                                <Text
+                                    text="{excelModel>FEE}"
+                                    visible="{= !${viewModel>/editMode} }" />
+
+                                <Input
+                                    value="{excelModel>FEE}"
+                                    visible="{viewModel>/editMode}" 
+                                    width="100%"/>
+                            </VBox>
+                            <!-- <Input value="{excelModel>FEE_CURRENCY}"  editable="{excelModel>/isEditing}"/> -->
+                            <VBox>
+                                <Text
+                                        text="{excelModel>FEE_CURRENCY}"
+                                        visible="{= !${viewModel>/editMode} }" />
+
+                                    <Input
+                                        value="{excelModel>FEE_CURRENCY}"
+                                        visible="{viewModel>/editMode}"
+                                        width="100%" />
+                            </VBox>
+                            <Text text="{excelModel>WEIGHT}"/>
+                            
+                            
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        </content>
+    </Page>
+
+    <!-- Edit Student Dialog -->
+    <Dialog
+        id="studentEditDialog"
+        title="Edit Student Details"
+        contentWidth="500px"
+        stretchOnPhone="true">
+
+        <content>
+            <VBox
+                class="sapUiSmallMargin"
+                width="100%">
+
+                <Label text="MANDIT"/>
+                <Input value="{editModel>/MANDIT}"/>
+
+                <Label text="Student ID"/>
+                <Input value="{editModel>/STD_ID}"/>
+
+                <Label text="Student Name"/>
+                <Input value="{editModel>/STD_NAME}"/>
+
+                <Label text="Date of Birth"/>
+                <Input value="{editModel>/DOB}"/>
+
+                <Label text="Gender"/>
+                <Input value="{editModel>/GENDER}"/>
+
+                <Label text="Father Name"/>
+                <Input value="{editModel>/FATHER_NAME}"/>
+
+                <Label text="Mother Name"/>
+                <Input value="{editModel>/MOTHER_NAME}"/>
+
+                <Label text="Aadhar Number"/>
+                <Input value="{editModel>/AADHAR_NUMBER}"/>
+
+                <Label text="Mobile"/>
+                <Input value="{editModel>/MOBILE}"/>
+
+                <Label text="Fee"/>
+                <Input value="{editModel>/FEE}"/>
+
+                <Label text="Fee Currency"/>
+                <Input value="{editModel>/FEE_CURRENCY}"/>
+
+                <Label text="Weight"/>
+                <Input value="{editModel>/WEIGHT}"/>
+
+            </VBox>
+        </content>
+
+        <beginButton>
+            <Button
+                text="Save"
+                type="Emphasized"
+                press=".onSaveStudent"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancel"
+                press=".onCancelStudentEdit"/>
+        </endButton>
+
+    </Dialog>
+
+</mvc:View>

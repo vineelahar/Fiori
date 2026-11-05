@@ -1,0 +1,230 @@
+<mvc:View
+    controllerName="project5.controller.Files"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.f">
+
+    <f:DynamicPage id="mainPage">
+
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="BOM and Routing Management" />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader>
+                <HBox alignItems="Center" wrap="Wrap">
+                    <Label text="Plant" />
+                    <Input
+                        id="plantInput"
+                        placeholder="Select Plant"
+                        width="12rem"
+                        showValueHelp="true"
+                        valueHelpRequest=".onPlantValueHelp" />
+
+                    <Label text="Request" />
+                    <Input
+                        id="requestInput"
+                        placeholder="Select Request"
+                        width="12rem"
+                        showValueHelp="true"
+                        valueHelpRequest=".onRequestValueHelp" />
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <VBox class="sapUiSmallMargin">
+
+                <IconTabBar
+                    id="fileTabBar"
+                    selectedKey="BOM"
+                    select=".onTabSelect">
+
+                    <items>
+
+                        <!-- BOM Tab -->
+                        <IconTabFilter
+                            key="BOM"
+                            text="BOM"
+                            icon="sap-icon://table-view"
+                            visible="{= ${viewModel>/request} === 'AB' || ${viewModel>/request} === 'AC' }">
+
+                            <Table
+                                id="bomTable"
+                                showSeparators="All"
+                                mode="SingleSelectLeft"
+                                items="{bomModel>/results}">
+
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title text="BOM" level="H2" />
+                                        <ToolbarSpacer />
+
+                                        <u:FileUploader
+                                            id="bomUploader"
+                                            buttonOnly="true"
+                                            buttonText="Upload"
+                                            icon="sap-icon://upload"
+                                            style="Transparent"
+                                            fileType="xlsx"
+                                            change=".onUploadBOM" />
+
+                                        <!-- <Button
+                                            text="Download"
+                                            icon="sap-icon://download"
+                                            press=".onDownloadBOM" /> -->
+                                        <Button
+                                            text="Download Template"
+                                            icon="sap-icon://download"
+                                            press=".onDownloadBOMTemplate"/>
+
+                                        <Button
+                                            text="Download Filled Data"
+                                            icon="sap-icon://excel-attachment"
+                                            visible="{viewModel>/isFilledDataVisible}"
+                                            press=".onDownloadBOM"/>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+
+                                <columns>
+                                    <Column><Text text="Material" /></Column>
+                                    <Column><Text text="Plant" /></Column>
+                                    <Column><Text text="Alternative" /></Column>
+                                    <Column><Text text="Base qty" /></Column>
+                                    <Column><Text text="Base unit" /></Column>
+                                    <Column><Text text="Alt Text" /></Column>
+                                    <Column><Text text="BOM Text" /></Column>
+                                    <Column><Text text="Item" /></Column>
+                                    <Column><Text text="Component" /></Column>
+                                    <Column><Text text="Comp qty" /></Column>
+                                    <Column><Text text="Comp unit" /></Column>
+                                </columns>
+
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{bomModel>Material}" />
+                                            <Text text="{bomModel>Plant}" />
+                                            <Text text="{bomModel>Alternative}" />
+                                            <Text text="{bomModel>Base qty}" />
+                                            <Text text="{bomModel>Base unit}" />
+                                            <Text text="{bomModel>Alt Text}" />
+                                            <Text text="{bomModel>BOM Text}" />
+                                            <Text text="{bomModel>Item}" />
+                                            <Text text="{bomModel>Component}" />
+                                            <Text text="{bomModel>Comp qty}" />
+                                            <Text text="{bomModel>Comp unit}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </IconTabFilter>
+
+                        <!-- Routing Tab -->
+                        <IconTabFilter
+                            key="Routing"
+                            text="Routing"
+                            icon="sap-icon://process"
+                             visible="{= ${viewModel>/request} === 'AB' || ${viewModel>/request} === 'AD' }">
+
+                            <Table
+                                id="routingTable"
+                                width="100%"
+                                fixedLayout="true"
+                                mode="SingleSelectLeft"
+                                items="{routingModel>/results}">
+
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title text="Routing" level="H2" />
+                                        <ToolbarSpacer />
+
+                                        <u:FileUploader
+                                            id="routingUploader"
+                                            buttonOnly="true"
+                                            buttonText="Upload"
+                                            icon="sap-icon://upload"
+                                            style="Transparent"
+                                            fileType="xlsx"
+                                            change=".onUploadRouting"/>
+
+                                        <!-- <Button
+                                            text="Download"
+                                            icon="sap-icon://download"
+                                            press=".onDownloadRouting" /> -->
+                                        <Button
+                                            text="Download Template"
+                                            icon="sap-icon://download"
+                                            press=".onDownloadRoutingTemplate"/>
+
+                                        <Button
+                                            text="Download Filled Data"
+                                            icon="sap-icon://excel-attachment"
+                                            visible="{viewModel>/isFilledDataVisible}"
+                                            press=".onDownloadRouting"/>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+
+                                <columns>
+                                    <Column><Text text="Material" /></Column>
+                                    <Column><Text text="Plant" /></Column>
+                                    <Column><Text text="Task Description" /></Column>
+                                    <Column><Text text="Usage" /></Column>
+                                    <Column><Text text="Status" /></Column>
+                                    <Column><Text text="Lot From" /></Column>
+                                    <Column><Text text="Lot To" /></Column>
+                                    <Column><Text text="Operation No" /></Column>
+                                    <Column><Text text="Work Center" /></Column>
+                                    <Column width="4rem"><Text text="Control Key" /></Column>
+                                    <Column width="4rem"><Text text="Description" /></Column>
+                                    <Column width="4rem"><Text text="Base qty" /></Column>
+                                    <Column width="4rem"><Text text="Variable Labour" /></Column>
+                                    <Column width="4rem"><Text text="Variable Labour Unit" /></Column>
+                                    <Column width="4rem"><Text text="Variable Machinery" /></Column>
+                                    <Column width="4rem"><Text text="Variable Machinery Unit" /></Column>
+                                    <Column width="4rem"><Text text="Fixed Labour" /></Column>
+                                    <Column width="4rem"><Text text="Fixed Labour Unit" /></Column>
+                                    <Column width="4rem"><Text text="Fixed Machinery" /></Column>
+                                    <Column width="4rem"><Text text="Fixed Machinery Unit" /></Column>
+                                </columns>
+
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{routingModel>Material}" />
+                                            <Text text="{routingModel>Plant}" />
+                                            <Text text="{routingModel>Task Description}" />
+                                            <Text text="{routingModel>Usage}" />
+                                            <Text text="{routingModel>Status}" />
+                                            <Text text="{routingModel>Lot From}" />
+                                            <Text text="{routingModel>Lot To}" />
+                                            <Text text="{routingModel>Operation No}" />
+                                            <Text text="{routingModel>Work Center}" />
+                                            <Text text="{routingModel>Control Key}" />
+                                            <Text text="{routingModel>Description}" />
+                                            <Text text="{routingModel>Base qty}" />
+                                            <Text text="{routingModel>Variable Labour}" />
+                                            <Text text="{routingModel>Variable Labour Unit}" />
+                                            <Text text="{routingModel>Variable Machinery}" />
+                                            <Text text="{routingModel>Variable Machinery Unit}" />
+                                            <Text text="{routingModel>Fixed Labour}" />
+                                            <Text text="{routingModel>Fixed Labour Unit}" />
+                                            <Text text="{routingModel>Fixed Machinery}" />
+                                            <Text text="{routingModel>Fixed Machinery Unit}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </IconTabFilter>
+
+                    </items>
+                </IconTabBar>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

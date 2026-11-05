@@ -1,0 +1,38 @@
+<mvc:View
+    controllerName="project2.controller.Pdfembedded"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="page"
+        title="PdfEmbedded">
+
+        <content>
+
+            <VBox width="100%">
+
+                <HBox>
+                    <Button
+                        text="Correctly Displayed"
+                        press=".onCorrectPathClick"/>
+
+                    <Button
+                        text="Loading Error"
+                        press=".onIncorrectPathClick"/>
+                </HBox>
+
+                <PDFViewer
+                    id="Pdfviewer"
+                    source="{/Source}"
+                    title="{/Title}"
+                    height="600px"
+                    width="100%"
+                    isTrustedSource="true"/>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

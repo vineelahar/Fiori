@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="groupingDialog"
+        title="Select: Grouping"
+        contentWidth="500px">
+
+        <SearchField
+            placeholder="Search"
+            liveChange=".onGroupingSearch"/>
+
+        <List
+            id="groupingList"
+            items="{groupings>/groupings}"
+            mode="SingleSelectMaster"
+            selectionChange=".onGroupingSelect">
+
+            <StandardListItem
+                title="{= ${groupings>key} + ' / ' + ${groupings>name} }"
+                type="Active"/>
+        </List>
+
+        <buttons>
+            <Button
+                text="Cancel"
+                press=".onGroupingCancel"/>
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

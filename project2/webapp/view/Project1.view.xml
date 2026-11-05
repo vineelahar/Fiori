@@ -1,0 +1,62 @@
+<mvc:View
+    controllerName="project2.controller.Project1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        title="Project 1"
+        showNavButton="true"
+        navButtonPress=".onBack">
+
+        <content>
+
+            <!-- 4 tiles for My Tile1 -->
+            <HBox id="tile1Content">
+
+                <GenericTile
+                    id="PdfTile"
+                    header="PDF Tasks"
+                    press=".onTaskPress" />
+
+                <GenericTile
+                    id="FileTile"
+                    header="Upload Files"
+                    press=".onTaskPress" />
+
+                <GenericTile
+                    id="CustomerTile"
+                    header="Customer Master"
+                    press=".onTaskPress" />
+
+                <GenericTile
+                    id="PdfTwoTile"
+                    header="PDF Two"
+                    press=".onTaskPress" />
+
+            </HBox>
+
+
+            <!-- 3 tiles for My Tile2 -->
+            <HBox
+                id="tile2Content"
+                visible="false">
+
+                <GenericTile
+                    header="Task A"
+                    press=".onTaskPress" />
+
+                <GenericTile
+                    header="Task B"
+                    press=".onTaskPress" />
+
+                <GenericTile
+                    header="Task C"
+                    press=".onTaskPress" />
+
+            </HBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

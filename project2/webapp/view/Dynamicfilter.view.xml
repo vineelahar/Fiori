@@ -1,0 +1,203 @@
+<mvc:View
+    controllerName="project2.controller.Dynamicfilter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+     xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar">
+
+    <!-- <f:DynamicPage >
+        <f:title>
+            <f:DynamicPageTitle >
+                <f:heading>
+                    <Title text="{filterBar in Dynamicpage}"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader >
+                <f:content>
+                    <HBox width="100%" justifyContent="SpaceBetween">
+                        <VBox >
+                            <Text text="Name" />
+                            <MultiComboBox id="nameCombo" selectionChange=".onNameChange">
+
+                            <core:Item text="High End Laptop 2b"/>
+                            <core:Item text="Hurricane GX"/>
+                            <core:Item text="Laptop Case"/>
+                            <core:Item text="Monitor Locking Cable"/>
+                            <core:Item text="Power Projector 4713"/>
+                            <core:Item text="Webcam"/>
+
+                            </MultiComboBox>
+                        </VBox>
+                        
+                        <VBox >
+                            <Text text="Category" />
+                            <MultiComboBox id="CategoryCombo" selectionChange=".onCategoryChange">
+
+                            <core:Item text="Accessory"/>
+                            <core:Item text="Graphics"/>
+                            <core:Item text="Laptop"/>
+                            <core:Item text="Projector"/>
+                        
+                            </MultiComboBox>
+                        </VBox>
+
+                        <VBox >
+                            <Text text="SupplierName" />
+                            <MultiComboBox id="SupplierCombo" selectionChange=".onSupplierChange">
+
+                            <core:Item text="Titaniun"/>
+                            <core:Item text="Technocon"/>
+                            <core:Item text="Red Point Stores"/>
+                            </MultiComboBox>
+
+                        </VBox>
+
+                        <VBox >
+                            <Button text="Go" press=".onGoPress"/>
+                        </VBox>
+
+                        <VBox >
+                            <Button text="Adapt Filters" press=".onAdaptPress"/>
+                        </VBox>
+                    </HBox>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+    </f:DynamicPage> -->
+
+    <f:DynamicPage>
+
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Products"/>
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader>
+
+                <f:content>
+                    <!-- FilterBar will come here -->
+                    <fb:FilterBar
+                        id="filterBar"
+                         useToolbar="false"
+                        search=".onSearch">
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem
+                                name="Name"
+                                label="Name"
+                                groupName="Group1"
+                                
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                     <MultiComboBox id="nameCombo" selectionChange=".onNameChange">
+
+                                        <core:Item key="High End Laptop 2b" text="High End Laptop 2b"/>
+                                        <core:Item key="Hurricane GX" text="Hurricane GX"/>
+                                        <core:Item key="Laptop CAse" text="Laptop Case"/>
+                                        <core:Item key="Monitor Locking Cable" text="Monitor Locking Cable"/>
+                                        <core:Item key="Power Projector 4713" text="Power Projector 4713"/>
+                                        <core:Item key="Webcam" text="Webcam"/>
+
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+
+                            <fb:FilterGroupItem
+                                name="Category"
+                                label="Category"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                    <!-- <Input id="CategoryInput"/> -->
+                                    <MultiComboBox id="CategoryCombo" selectionChange=".onCategoryChange">
+
+                                        <core:Item key="Accessory" text="Accessory"/>
+                                        <core:Item key="Graphics" text="Graphics"/>
+                                        <core:Item key="Laptop" text="Laptop"/>
+                                        <core:Item key="Projector" text="Projector"/>
+                                    
+                                        </MultiComboBox>
+                                   
+                                </fb:control>
+                                
+                            </fb:FilterGroupItem>
+                             <fb:FilterGroupItem
+                                name="SupplierName"
+                                label="SupplierName"
+                                groupName="Group1"
+                                visibleInFilterBar="true">
+                                <fb:control>
+                                     <MultiComboBox id="SupplierCombo" selectionChange=".onSupplierChange">
+
+                                        <core:Item key="Titanium" text="Titaniun"/>
+                                        <core:Item key="Technocon" text="Technocon"/>
+                                        <core:Item key="Red Point Stores" text="Red Point Stores"/>
+                                    </MultiComboBox>
+                                </fb:control>
+                                
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+
+                </f:content>
+
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+
+            <Table
+                id="ProductTable"
+                items="{/ProductCollection}">
+
+                <columns>
+
+                    <Column>
+                        <Text text="Product ID"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Category"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Supplier Name"/>
+                    </Column>
+
+                </columns>
+
+                <items>
+
+                    <ColumnListItem>
+                        <cells>
+
+                            <Text text="{ProductId}"/>
+                            <Text text="{Name}"/>
+                            <Text text="{Category}"/>
+                            <Text text="{SupplierName}"/>
+
+                        </cells>
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+
+        </f:content>
+
+    </f:DynamicPage>
+
+    
+
+</mvc:View>

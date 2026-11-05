@@ -1,0 +1,69 @@
+<mvc:View
+    controllerName="project2.controller.Pdftwo"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    height="100%">
+
+    <Page
+        id="page"
+        title="Two Pdfs">
+
+        <content>
+
+            <VBox
+                width="100%"
+                class="sapUiSmallMargin">
+
+                <HBox>
+
+                    <Button
+                        id="CurrentlyDisplayed"
+                        text="Currently Displayed"
+                        press=".ondisplay"/>
+
+                    <Button
+                        id="Loadingerror"
+                        text="Loading error"
+                        press=".onearror"/>
+
+                </HBox>
+
+                <HBox
+                    width="100%"
+                    fitContainer="true">
+
+                    <PDFViewer
+                        id="PdfViewer1"
+                        source="{/Source}"
+                        title="{/Title1}"
+                        height="{/Height}"
+                        width="auto">
+
+                        <layoutData>
+                            <FlexItemData growFactor="1"/>
+                        </layoutData>
+
+                    </PDFViewer>
+
+                    <PDFViewer
+                        id="PdfViewer2"
+                        source="{/Source}"
+                        title="{/Title2}"
+                        height="{/Height}"
+                        width="auto">
+
+                        <layoutData>
+                            <FlexItemData growFactor="1"/>
+                        </layoutData>
+
+                    </PDFViewer>
+
+                </HBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

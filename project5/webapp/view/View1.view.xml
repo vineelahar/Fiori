@@ -1,0 +1,643 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="project5.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+   
+    xmlns:uxap="sap.uxap"
+     
+    xmlns:core="sap.ui.core"
+   
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <uxap:ObjectPageLayout>
+        <!-- uxap build for object page -->
+        <!-- Object page section provide section navigation -->
+            <uxap:ObjectPageSection title="General Data">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="General Information">
+                        <form:Form
+                            id="generalDataSelection"
+                            title="General Information">
+
+                            <form:layout>
+                                <form:ResponsiveGridLayout
+                                    columnsXL="3"
+                                    columnsL="3"
+                                    columnsM="1"
+                                    
+                                    labelSpanXL="4"
+                                    labelSpanL="4"
+                                            labelSpanM="4"/>
+                                </form:layout>
+
+                                <form:formContainers>
+                                    <!-- in place of colums and labelSpam we use (layout:Grid)
+                                    <layout:Grid defaultSpan="XL4 L4 M6 S12">
+
+                                    <Input placeholder="Name"/>
+                                    <Input placeholder="Email"/>
+                                    <Input placeholder="Phone"/>
+
+                                    </layout:Grid> -->
+                                    <!-- columns: how many colums we want -->
+                                    <!-- labelSpanXl:how much horizontal space label occupies -->
+                                    <!-- Column 1 -->
+                                    <form:FormContainer>
+
+                                        <form:formElements>
+                                            <form:FormElement  >
+                                                <form:label>
+                                                    <Label
+                                                        text="Grouping"
+                                                        required="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input showValueHelp="true" valueHelpRequest=".onGroupingValueHelp"/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="External Number">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Search Term 1">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement label="Search Term 2">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement label="Title Key">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+
+                                    </form:FormContainer>
+
+
+                                    <!-- Column 2 -->
+                                    <form:FormContainer>
+
+                                        <form:formElements>
+                                            <form:FormElement  >
+                                                <form:label>
+                                                    <Label
+                                                        text="Name 1"
+                                                        required="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement  >
+                                                <form:label>
+                                                    <Label
+                                                        text="Name 2"
+                                                        required="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Name 3">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Name 4">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Structure Group">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+
+                                    </form:FormContainer>
+
+
+                                    <!-- Column 3 -->
+                                    <form:FormContainer>
+
+                                        <form:formElements>
+                                            <form:FormElement  >
+                                                <form:label>
+                                                    <Label
+                                                        
+                                                        text="Language"
+                                                        required="true"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input showValueHelp="true" valueHelpRequest=".onLanguageValueHelp"/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Telephone">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Email">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="Fax">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                            <form:FormElement label="PO Box Number">
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+
+                                    </form:FormContainer>
+
+                                </form:formContainers>
+
+                            </form:Form> 
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            
+
+            <uxap:ObjectPageSection title="Company code data">
+
+                <uxap:subSections>
+
+                    
+                    <uxap:ObjectPageSubSection>
+
+                        <form:Form 
+                            id="companyCodeSelection"
+                            title="Company Code Data">
+                            <form:layout>
+                                <form:ResponsiveGridLayout
+                                    columnsXL="1"
+                                    columnsL="1"
+                                    columnsM="1"
+                                    labelSpanXL="2"
+                                    labelSpanL="2"
+                                    labelSpanM="3"/>
+                            </form:layout>
+                                <form:formContainers>
+                                    <form:FormContainer>
+                                        <form:FormElement>
+                                            <form:label>
+                                                <Label text="Company code" required="true"/>
+                                            </form:label>
+                                            <form:fields>
+                                                <Input showValueHelp="true" valueHelpRequest=".onCompanyValueHelp"/>
+                                            </form:fields>
+                                        </form:FormElement>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                        </form:Form>
+
+                    </uxap:ObjectPageSubSection>
+
+                    <uxap:ObjectPageSubSection>
+
+                        <form:Form title="Account Management">
+
+                            <form:layout>
+                                <form:ResponsiveGridLayout
+                                    columnsXL="3"
+                                    columnsL="3"
+                                    columnsM="1"
+                                    labelSpanXL="4"
+                                    labelSpanL="4"
+                                    labelSpanM="4"/>
+                            </form:layout>
+
+                            <form:formContainers>
+
+                                <!-- COLUMN 1 -->
+                                <form:FormContainer>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Recon. Account:" required="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Head Office:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                </form:FormContainer>
+
+
+                                <!-- COLUMN 2 -->
+                                <form:FormContainer>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Sort Key:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Planning Group:" required="true"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+                                </form:FormContainer>
+                                   
+                                    <!-- COLUMN 3 -->
+                                        <form:FormContainer>
+
+                                            <form:FormElement>
+                                                <form:label>
+                                                    <Label text="Previous Acc number:"/>
+                                                </form:label>
+                                                <form:fields>
+                                                    <Input/>
+                                                </form:fields>
+                                            </form:FormElement>
+
+                                        </form:FormContainer>
+
+                                
+
+
+                                
+                                <form:FormContainer >
+
+                                    
+
+
+                             </form:FormContainer>
+
+                        </form:formContainers>
+
+                    </form:Form>
+        
+
+                    </uxap:ObjectPageSubSection>
+
+                </uxap:subSections>
+
+            </uxap:ObjectPageSection>
+
+           <uxap:ObjectPageSection title="Bank Data">
+                <uxap:subSections>
+
+                    <uxap:ObjectPageSubSection>
+
+                        <VBox>
+
+                            <!-- Buttons ABOVE the table -->
+                            <Toolbar>
+                                <ToolbarSpacer/>
+                                    <Button
+                                        text="Add Row"
+                                        icon="sap-icon://add"
+                                        press=".onAddRow"/>
+
+                                    <Button
+                                        text="Delete Row"
+                                        icon="sap-icon://delete"
+                                        press=".onDeleteRow"/>
+                                
+                            </Toolbar>
+
+
+                            <!-- Bank Data Table -->
+                            <Table id="bankTable"
+                                    mode="MultiSelect"
+                                    includeItemInSelection="true"
+                                    selectionChange=".onSelectionChange">
+
+                                <columns>
+                                    
+
+                                    <Column>
+                                        <Text text="Account Number of Supplier"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Bank Country/Region"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Bank Key"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Bank Account Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Bank Control Key"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Partner bank type"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Indicator: is the  Collection Authorization ?"/>
+                                    </Column>
+
+                                </columns>
+
+                               <items>
+                                    <ColumnListItem>
+
+                                        
+
+                                        <Input/>
+
+                                        <Select items="{countries>/countries}">
+                                            <core:Item
+                                                key="{countries>key}"
+                                                text="{countries>name}"/>
+                                        </Select>
+
+                                        <Select items="{bankkeys>/bankKeys}">
+                                            <core:Item
+                                                key="{bankkeys>key}"
+                                                text="{bankkeys>name}"/>
+                                        </Select>
+
+                                        <Input/>
+
+                                        <Input/>
+
+                                        <Input/>
+
+                                        <CheckBox/>
+
+                                    </ColumnListItem>
+                                </items>
+
+                            </Table>
+
+                        </VBox>
+
+                    </uxap:ObjectPageSubSection>
+
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection title="Purchase Org Data">
+                <uxap:subSections>
+
+                    <uxap:ObjectPageSubSection>
+
+                        <form:Form title="Purchase Org Data">
+
+                            <form:layout>
+                                <form:ResponsiveGridLayout
+                                    columnsXL="3"
+                                    columnsL="3"
+                                    columnsM="1"
+                                    labelSpanXL="4"
+                                    labelSpanL="4"
+                                    labelSpanM="4"/>
+                            </form:layout>
+
+                            <form:formContainers>
+
+                                <!-- Column 1 -->
+                                <form:FormContainer>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Purchase Org.:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Purchase order currency:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Terms of Payment Key:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                </form:FormContainer>
+
+
+                                <!-- Column 2 -->
+                                <form:FormContainer>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Incoterms (Part 1):"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input showValueHelp="true"/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Incoterms (Part 2):"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                </form:FormContainer>
+
+
+                                <!-- Column 3 -->
+                                <form:FormContainer>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Indicator: GR-Based Invoice Verification:"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <CheckBox/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                    <form:FormElement>
+                                        <form:label>
+                                            <Label text="Group for Calculation Schema (Supplier):"/>
+                                        </form:label>
+                                        <form:fields>
+                                            <Input/>
+                                        </form:fields>
+                                    </form:FormElement>
+
+                                </form:FormContainer>
+
+                            </form:formContainers>
+
+                        </form:Form>
+
+                    </uxap:ObjectPageSubSection>
+
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection title="Identification Numbers">
+                <uxap:subSections>
+
+                    <uxap:ObjectPageSubSection>
+
+                        <VBox>
+
+                            <!-- Buttons ABOVE the table -->
+                            <Toolbar>
+                                <ToolbarSpacer/>
+                                    <Button
+                                        text="Add Row"
+                                        icon="sap-icon://add"
+                                        press=".onAddIdentificationRow"/>
+
+                                    <Button
+                                        text="Delete Row"
+                                        icon="sap-icon://delete"
+                                        press=".onDeleteIdentificationRow"/>
+                                
+                            </Toolbar>
+
+
+                            <!-- Bank Data Table -->
+                            <Table id="identificationNumbersTable"
+                                    mode="MultiSelect"
+                                    
+                                    selectionChange=".onIdentificationSelectionChange">
+
+                                <columns>
+                                    
+
+                                    <Column>
+                                        <Text text="Identification Type"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Identification Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Responsible Institution for ID Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Date of Entry for ID Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Validity Start for ID Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Validity End for ID Number"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Country/Region in Which ID Number is Valid or Was Assigned"/>
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="Region"/>
+                                    </Column>
+
+                                </columns>
+
+                               <items>
+                                    <ColumnListItem>
+
+                                        
+
+                                        <Input showValueHelp="true"/>
+
+                                        <Input/>
+
+                                        <Input/>
+
+                                        <DatePicker
+                                            displayFormat="yyyy-MM-dd"
+                                            placeholder="e.g. 2026-12-01"
+                                        />
+
+                                        <DatePicker
+                                            displayFormat="yyyy-MM-dd"
+                                            placeholder="e.g. 2026-12-01"
+                                        />
+
+                                        <DatePicker
+                                            displayFormat="yyyy-MM-dd"
+                                            placeholder="e.g. 2026-12-01"
+                                        />
+
+                                        <Input showValueHelp="true"/>
+
+                                        <Input/>
+
+                                    </ColumnListItem>
+                                </items>
+
+                            </Table>
+
+                        </VBox>
+
+                    </uxap:ObjectPageSubSection>
+
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        
+       
+
+            
+        
+        </uxap:ObjectPageLayout>
+        
+               
+
+            
+    </Page>
+</mvc:View>

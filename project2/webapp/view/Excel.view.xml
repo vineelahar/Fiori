@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="project2.controller.Excel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="page" title="{i18n>title}">
+
+        <Table
+            id="customerTable"
+            items="{customerModel>/customers}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Customer ID"/>
+                </Column>
+
+                <Column>
+                    <Text text="Name"/>
+                </Column>
+
+                <Column>
+                    <Text text="City"/>
+                </Column>
+
+                <Column>
+                    <Text text="Country"/>
+                </Column>
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+                        <Text text="{customerModel>CustomerID}"/>
+                        <Text text="{customerModel>Name}"/>
+                        <Text text="{customerModel>City}"/>
+                        <Text text="{customerModel>Country}"/>
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+
+    </Page>
+
+</mvc:View>

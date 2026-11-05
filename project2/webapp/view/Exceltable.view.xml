@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="project2.controller.Exceltable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="page"
+        title="Excel Data">
+
+        <content>
+
+            <Table
+                id="excelTable"
+                items="{excelModel>/data}">
+
+                <columns>
+
+                    <Column>
+                        <Text text="SL.No."/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Industry Type"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Location"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Contact No."/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Webiste"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Response"/>
+                    </Column>
+
+                </columns>
+
+                <items>
+
+                    <ColumnListItem>
+
+                        <cells>
+
+                            <Text text="{excelModel>SL.No}"/>
+
+                            <Text text="{excelModel>Name}"/>
+
+                            <Text text="{excelModel>Industry Type}"/>
+
+                            <Text text="{excelModel>Location}"/>
+
+                            <Text text="{excelModel>Contact No.}"/>
+
+                            <Text text="{excelModel>Webiste}"/>
+
+                            <Text text="{excelModel>Response}"/>
+
+                        </cells>
+
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

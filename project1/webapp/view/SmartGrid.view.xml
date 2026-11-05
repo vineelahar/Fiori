@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="project1.controller.SmartGrid"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+
+    <Page
+        id="page"
+        title="Mara Table">
+        
+        <content>
+            <smartFilterBar:SmartFilterBar 
+                id="materialFilterBar"
+                entitySet="ZRK_CDS_MARA">
+
+                <smartFilterBar:controlConfiguration>
+
+                    <smartFilterBar:ControlConfiguration 
+                        key="Product"
+                        visibleInAdvancedArea="true"/>
+
+                    <smartFilterBar:ControlConfiguration
+                        key="ProductType"
+                        visibleInAdvancedArea="true"/>
+                    <smartFilterBar:ControlConfiguration 
+                        key="ProductGroup"
+                        visibleInAdvancedArea="true"/>
+                    
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+            <smartTable:SmartTable
+                id="SmartTable"
+                entitySet="ZRK_CDS_MARA"
+                tableType="Table"
+                smartFilterId="materialFilterBar"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Material Details"
+                enableAutoBinding="true" 
+                initiallyVisibleFields="Product,ProductType,Brand,BaseUnit,CreatedByUser"
+            />
+
+            <HBox justifyContent="Center"
+                alignItems="Center"
+                class="sapUiSmallMargin">
+
+                <Button text="Previous"
+                    press=".onPrevious"
+                    enabled="{pagination>/hasPrevious}"                   
+                />
+
+                <Text
+                    text="Page {pagination>/currentPage} of {pagination>/totalPages}"
+                    class="sapUiSmallMarginBeginEnd"
+                />
+                
+                
+                <Button text="Next"
+                    press=".onNext"
+                    enabled="{pagination>/hasNext}"/>
+            </HBox>   
+        </content>
+
+    </Page>
+</mvc:View>

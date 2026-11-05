@@ -1,0 +1,21 @@
+<mvc:View controllerName="project5.controller.File"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+    <Button
+        text="Download BOM Template"
+        press=".onDownloadBOMTemplate"
+        icon="sap-icon://download"
+    />
+
+    <Button
+        text="Download Routing Template"
+        press=".onDownloadRoutingTemplate"
+        icon="sap-icon://download"
+    />      
+
+
+       
+    </Page>
+</mvc:View>

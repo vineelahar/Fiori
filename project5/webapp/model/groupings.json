@@ -1,0 +1,47 @@
+{
+    "groupings": [
+        {
+            "key": "001",
+            "name": "Vendor"
+        },
+        {
+            "key": "002",
+            "name": "Customer"
+        },
+        {
+            "key": "003",
+            "name": "Employee"
+        }
+    ],
+
+    "languages": [
+        {
+            "id": "HI",
+            "name": "Hindi"
+        },
+        {
+            "id": "EN",
+            "name": "English"
+        },
+        {
+            "id": "TE",
+            "name": "Telugu"
+        },
+        {
+            "id": "TA",
+            "name": "Tamil"
+        },
+        {
+            "id": "KN",
+            "name": "Kannada"
+        },
+        {
+            "id": "FR",
+            "name": "French"
+        },
+        {
+            "id": "DE",
+            "name": "German"
+        }
+    ]
+}

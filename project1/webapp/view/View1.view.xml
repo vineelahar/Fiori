@@ -1,0 +1,150 @@
+<mvc:View 
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page  title="My To-DoList">
+        <Table 
+                id="SalesorederTable"
+                items="{SalesOrder>/SalesOrderSet}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Sales Document"/>
+                </Column>
+
+                <Column>
+                    <Text text="Created date"/>
+                </Column>
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+    
+                        <Text text="{SalesOrder>VBELN}"/>
+
+                        <Text text="{SalesOrder>ERDAT}"/>
+
+                     </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+
+        <!-- <Table 
+            id="salesTable"
+            items="{SalesOrder>/salesorderSet}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Sales Document"/>
+                </Column>
+
+                <Column>
+                    <Text text="Created date"/>
+                </Column>
+
+                
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+                        <Text text="{SalesOrder>VBELN}"/>
+
+                        <Text
+                            text= "{SalesOrder>ERDAT}"/>
+                                
+
+                        
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table> -->
+
+    </Page>
+     <!-- <Page id="page" title="My To-DoList">
+
+        <Table 
+            id="salesTable"
+            items="{Salesorder>/salesorderSet}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Sales_no"/>
+                </Column>
+
+                <Column>
+                    <Text text="Sales_Type"/>
+                </Column>
+
+                <Column>
+                    <Text text="Date"/>
+                </Column>
+
+                <Column>
+                    <Text text="Customer"/>
+                </Column>
+                <Column>
+                    <Text text="Sales_org"/>
+                </Column>
+
+                
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+                        <Text text="{Salesorder>Sales_no}"/>
+
+                        <Text text= "{Salesorder>Sales_Type}"/>
+                        <Text text= "{Salesorder>Date}"/>
+                        <Text text= "{Salesorder>Customer}"/>
+                        <Text text= "{Salesorder>Sales_org}"/>
+                                
+
+                        
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>
+
+    </Page> -->
+
+</mvc:View>
+        <!-- <content> 
+            <VBox class="sapUiSmallMargin"> 
+                <HBox> 
+                    <Input id="taskInput" placeholder="Enter a task" width="80%" />
+                        <Button text="Add" press=".onAddTask" class="sapUiSmallMarginBegin" /> 
+                </HBox> 
+                         <List id="taskList" class="sapUiSmallMarginTop"> </List> 
+            </VBox> 
+        </content> -->
+      

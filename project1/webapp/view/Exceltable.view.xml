@@ -1,0 +1,71 @@
+<mvc:View controllerName="project1.controller.Exceltable"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+
+        <Button
+            text="Download Excel"
+            icon="sap-icon://download"
+            press=".onDownloadExcel"
+            type="Emphasized"
+        />
+
+        <Table 
+            id="SalesTable"
+            mode="SingleSelectMaster"
+            selectionChange=".onRowSelect"
+            items="{ZAK_SO_SRV>/salesorderSet}">
+
+            <columns>
+
+                <Column>
+                    <Text text="Sales_no"/>
+                </Column>
+
+                <Column>
+                    <Text text="Sales_Type"/>
+                </Column>
+
+                <Column>
+                    <Text text="Date"/>
+                </Column>
+
+                <Column>
+                    <Text text="Customer"/>
+                </Column>
+                <Column>
+                    <Text text="Sales_org"/>
+                </Column>
+
+                
+
+            </columns>
+
+            <items>
+
+                <ColumnListItem>
+
+                    <cells>
+
+                        <Text text="{ZAK_SO_SRV>Sales_no}"/>
+
+                        <Text text= "{ZAK_SO_SRV>Sales_Type}"/>
+                        <Text text= "{ZAK_SO_SRV>Date}"/>
+                        <Text text= "{ZAK_SO_SRV>Customer}"/>
+                        <Text text= "{ZAK_SO_SRV>Sales_org}"/>
+                                
+
+                        
+
+                    </cells>
+
+                </ColumnListItem>
+
+            </items>
+
+        </Table>        
+
+
+       
+    </Page>
+</mvc:View>

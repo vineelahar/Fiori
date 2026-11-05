@@ -1,0 +1,39 @@
+<mvc:View
+    controllerName="project1.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+
+    <Page
+        id="page"
+        title="Sales Order Details">
+
+        <content>
+
+            <form:SimpleForm
+                id="Salesform"
+                editable="false"
+                layout="ResponsiveGridLayout">
+
+                <Label text="Sales No"/>
+                <Text text="{ZAK_SO_SRV>Sales_no}"/>
+
+                <Label text="Sales Type"/>
+                <Text text="{ZAK_SO_SRV>Sales_Type}"/>
+
+                <Label text="Date"/>
+                <Text text="{ZAK_SO_SRV>Date}"/>
+
+                <Label text="Customer"/>
+                <Text text="{ZAK_SO_SRV>Customer}"/>
+
+                <Label text="Sales Org"/>
+                <Text text="{ZAK_SO_SRV>Sales_org}"/>
+
+            </form:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="CompanyDialog"
+        title="Select: companyCodes"
+        contentWidth="500px">
+
+        <SearchField
+            placeholder="Search"
+            liveChange=".onCompanySearch"/>
+
+        <List
+            id="CompanyList"
+            items="{company>/companyCodes}"
+            mode="SingleSelectMaster"
+            selectionChange=".onCompanySelect">
+
+            <StandardListItem
+                title="{= ${Company>id} + ' / ' + ${Company>name} }"
+                type="Active"/>
+        </List>
+
+        <buttons>
+            <Button
+                text="Cancel"
+                press=".onCompanyCancel"/>
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

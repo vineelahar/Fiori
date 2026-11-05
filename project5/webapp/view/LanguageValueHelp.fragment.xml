@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="LanguageDialog"
+        title="Select: Language"
+        contentWidth="500px">
+
+        <SearchField
+            placeholder="Search"
+            liveChange=".onLanguageSearch"/>
+
+        <List
+            id="LanguageList"
+            items="{groupings>/languages}"
+            mode="SingleSelectMaster"
+            selectionChange=".onLanguageSelect">
+
+            <StandardListItem
+                title="{= ${groupings>id} + ' / ' + ${groupings>name} }"
+                type="Active"/>
+        </List>
+
+        <buttons>
+            <Button
+                text="Cancel"
+                press=".onLanguageCancel"/>
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

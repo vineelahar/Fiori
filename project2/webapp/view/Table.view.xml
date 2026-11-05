@@ -1,0 +1,185 @@
+<mvc:View
+    controllerName="project2.controller.Table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+
+    <Page title="{i18n>customerTitle}">
+
+        <content>
+
+            <!-- BUTTONS + LANGUAGE -->
+            <Toolbar>
+
+                <ToolbarSpacer/>
+
+                <!-- LANGUAGE DROPDOWN -->
+                <Select
+                    id="languageSelect"
+                    selectedKey="en"
+                    change=".onLanguageChange"
+                    width="130px">
+
+                    <items>
+
+                        <core:Item
+                            key="en"
+                            text="English"/>
+
+                        <core:Item
+                            key="de"
+                            text="Deutsch"/>
+
+                        <core:Item
+                            key="hi"
+                            text="हिन्दी"/>
+
+                        <core:Item
+                            key="te"
+                            text="తెలుగు"/>
+
+                        <core:Item
+                            key="ja"
+                            text="日本語"/>
+
+                        <core:Item
+                            key="th"
+                            text="ไทย"/>
+
+                    </items>
+
+                </Select>
+
+                <Button
+                    id="edit"
+                    text="{i18n>edit}"
+                    icon="sap-icon://edit"
+                    type="Emphasized"
+                    press=".onEdit"
+                    visible="{= !${/editMode} }"
+                />
+
+                <Button
+                    id="save"
+                    text="{i18n>save}"
+                    icon="sap-icon://save"
+                    type="Accept"
+                    press=".onSave"
+                    visible="{/editMode}"
+                />
+
+                <Button
+                    id="cancel"
+                    text="{i18n>cancel}"
+                    icon="sap-icon://cancel"
+                    press=".onCancel"
+                    visible="{/editMode}"
+                />
+
+            </Toolbar>
+
+
+            <!-- TABLE -->
+            <Table
+                id="customerTable"
+                items="{/customers}"
+                mode="SingleSelectMaster"
+                selectionChange=".onRowSelect"
+                visible="{= !${/editMode} }">
+
+                <columns>
+
+                    <!-- i18n = COLUMN LABEL -->
+                    <Column>
+                        <Text text="{i18n>customerId}"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="{i18n>name}"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="{i18n>city}"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="{i18n>country}"/>
+                    </Column>
+
+                </columns>
+
+                <items>
+
+                    <ColumnListItem>
+
+                        <cells>
+
+                            <!-- CUSTOMER DATA - DO NOT CHANGE THESE -->
+                            <Text text="{CustomerID}"/>
+
+                            <Text text="{Name}"/>
+
+                            <Text text="{City}"/>
+
+                            <Text text="{Country}"/>
+
+                        </cells>
+
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+
+
+            <!-- EDIT FORM -->
+            <f:SimpleForm
+                id="editForm"
+                editable="true"
+                title="{i18n>editCustomer}"
+                visible="{/editMode}">
+
+                <f:content>
+
+                    <!-- i18n LABEL -->
+                    <Label text="{i18n>customerId}"/>
+
+                    <!-- CUSTOMER DATA -->
+                    <Input
+                        value="{/selectedCustomer/CustomerID}"
+                        editable="false"/>
+
+
+                    <!-- i18n LABEL -->
+                    <Label text="{i18n>name}"/>
+
+                    <!-- CUSTOMER DATA -->
+                    <Input
+                        value="{/selectedCustomer/Name}"/>
+
+
+                    <!-- i18n LABEL -->
+                    <Label text="{i18n>city}"/>
+
+                    <!-- CUSTOMER DATA -->
+                    <Input
+                        value="{/selectedCustomer/City}"/>
+
+
+                    <!-- i18n LABEL -->
+                    <Label text="{i18n>country}"/>
+
+                    <!-- CUSTOMER DATA -->
+                    <Input
+                        value="{/selectedCustomer/Country}"/>
+
+                </f:content>
+
+            </f:SimpleForm>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

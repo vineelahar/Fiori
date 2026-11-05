@@ -1,0 +1,32 @@
+<mvc:View  controllerName="project2.controller.Tile"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="My Tiles">
+        <content>
+            <HBox >
+                <GenericTile id="Tile1" header="Pdf Popup"   press=".onPress" >
+                    <customData>
+                        <core:CustomData key ="route" value="RoutePdfpopup"/>
+                    </customData>
+                </GenericTile>
+                <!-- <TileContent >
+                    <NumericContent value="25" icon="sap-icon://customer"/>
+                </TileContent> -->
+                <GenericTile id="Tile2" header="Upload Files"   press=".onPress" >
+                    <customData>
+                        <core:CustomData key ="route" value="RoutePdfpopup"/>
+                    </customData>
+                </GenericTile>
+                <!-- <TileContent >
+                    <NumericContent value="25" icon="sap-icon://customer"/>
+                </TileContent> -->
+
+            </HBox>
+            
+            
+        </content>
+         
+       
+    </Page>
+</mvc:View>

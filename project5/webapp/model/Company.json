@@ -1,0 +1,50 @@
+{
+    
+    "companyCodes": [
+        {
+            "id": "1000",
+            "name": "Hyderabad Company"
+        },
+        {
+            "id": "2000",
+            "name": "Bangalore Company"
+        },
+        {
+            "id": "3000",
+            "name": "Chennai Company"
+        }
+    ],
+
+    "reconAccounts": [
+        {
+            "id": "140000",
+            "name": "Domestic Vendors"
+        },
+        {
+            "id": "140001",
+            "name": "Foreign Vendors"
+        }
+    ],
+
+    "sortKeys": [
+        {
+            "id": "001",
+            "name": "Posting Date"
+        },
+        {
+            "id": "002",
+            "name": "Document Number"
+        }
+    ],
+
+    "planningGroups": [
+        {
+            "id": "A1",
+            "name": "Domestic"
+        },
+        {
+            "id": "A2",
+            "name": "Foreign"
+        }
+    ]
+}

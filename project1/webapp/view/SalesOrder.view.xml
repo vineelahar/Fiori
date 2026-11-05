@@ -1,0 +1,83 @@
+<mvc:View
+    controllerName="project1.controller.SalesOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Sales Orders">
+        <content>
+            
+            <Table
+                id="salesOrderTable"
+                items="{API_SALES_ORDER_SRV>/A_SalesOrder}"
+                growing="true"
+                growingScrollToLoad="true"
+                mode="MultiSelect"
+                selectionChange="onSalesOrderSelectionChange"
+                 >
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Sales Order Details"/>
+                        <ToolbarSpacer/>
+
+                        <SearchField
+                            width="18rem"
+                            placeholder="Search Sales Order"
+                            search="onSearch"/>
+
+                        <Button
+                            text="Create"
+                            type="Emphasized"
+                            press="onPressCreate"/>
+                        <Button
+                            id="deleteSalesOrderButton"
+                            text="Delete"
+                            icon="sap-icon://delete"
+                            enabled="false"
+                            press="onDeleteSalesOrder"/>
+                        
+                        <!-- <Button -->
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column>
+                        <Text text="Sales Order"/>
+                    </Column>
+                    <Column>
+                        <Text text="Order Type"/>
+                    </Column>
+                    <Column>
+                        <Text text="Sales Organization"/>
+                    </Column>
+                    <Column>
+                        <Text text="Division"/>
+                    </Column>
+                    <Column>
+                        <Text text="SoldToParty"/>
+                    </Column>
+                    <Column>
+                        <Text text="Delivery Date"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem type="Navigation"
+                            press="onSalesOrderPress">
+                        <cells>
+                            <Text text="{API_SALES_ORDER_SRV>SalesOrder}"/>
+                            <Text text="{API_SALES_ORDER_SRV>SalesOrderType}"/>
+                            <Text text="{API_SALES_ORDER_SRV>SalesOrganization}"/>
+                            <Text text="{API_SALES_ORDER_SRV>OrganizationDivision}"/>
+                            <Text text="{API_SALES_ORDER_SRV>SoldToParty}"/>
+                            <Text text="{API_SALES_ORDER_SRV>RequestedDeliveryDate}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+
+            
+        </content>
+    </Page>
+</mvc:View>
